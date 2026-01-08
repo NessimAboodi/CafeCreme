@@ -1,0 +1,93 @@
+/* --- RESET ET BASE --- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fcfaf8; /* Un fond crème très léger pour le site */
+    color: #3e2723; /* Couleur de texte marron foncé pour la lisibilité */
+}
+
+/* --- BARRE DE NAVIGATION (NAVBAR) --- */
+nav {
+    background-color: #4e342e; /* Marron café profond */
+    padding: 0.8rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Ombre plus douce et moderne */
+    position: sticky; /* Reste en haut au défilement */
+    top: 0;
+    z-index: 1000;
+}
+
+/* Conteneur Logo + Nom */
+.brand-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #ffffff;
+    transition: transform 0.2s ease;
+}
+
+.brand-container:hover {
+    transform: scale(1.02); /* Effet de léger zoom au survol du logo */
+}
+
+/* Le Logo PNG */
+.brand-container img {
+    height: 80px; /* Taille légèrement augmentée */
+    width: auto;
+    margin-right: 12px;
+    /* Le fond gris a été supprimé ici pour laisser la transparence du PNG */
+    background-color: transparent;
+}
+
+/* Le nom "CafeCreme" */
+.brand-name {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* --- LIENS DE NAVIGATION --- */
+.nav-links {
+    display: flex;
+    gap: 25px; /* Espace constant entre les liens */
+}
+
+.nav-links a {
+    color: #d7ccc8; /* Couleur crème clair */
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+/* Effet au survol des liens */
+.nav-links a:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1); /* Léger fond clair au survol */
+}
+
+/* --- CONTENU PRINCIPAL --- */
+main {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3.5rem;
+    color: #4e342e;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #6d4c41;
+}
