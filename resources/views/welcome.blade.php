@@ -75,29 +75,44 @@
 <script src="{{ asset('js/carousel.js') }}"></script>
 
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
+<section class="access-section">
+    <div class="access-container">
+        <div class="map-box">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2784.2483864765625!2d4.8711442!3d45.7461621!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4c19451480f77%3A0xc39f9976378e90e7!2s12%20Rue%20Professeur%20Rollet%2C%2069008%20Lyon!5e0!3m2!1sfr!2sfr!4v1700000000000"
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
 
+        <div class="info-box">
+            <h2 class="section-title">NOUS TROUVER</h2>
+            <p class="address">
+                <i class="fas fa-map-marker-alt"></i>
+                12 Rue Professeur Rollet, 69008 Lyon
+            </p>
 
-
-
-
-
-<section class="reviews-container">
-    <div class="elfsight-app-3f663381-0fac-4aa9-8669-025f85949666" data-elfsight-app-lazy></div>
-</section>
-
-<section class="map-section">
-    <div class="map-container">
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2784.6225442531634!2d4.872473876805096!3d45.73866291515286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4c01729161f2d%3A0xb3b735c06ef8e096!2sCaf%C3%A9%20Cr%C3%A8me!5e0!3m2!1sfr!2sfr!4v1715600000000!5m2!1sfr!2sfr"
-            width="100%"
-            height="450"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy">
-        </iframe>
+            <div class="social-links">
+                <h3>SUIVEZ-NOUS</h3>
+                <div class="icons">
+                    <a href="https://www.instagram.com/votre_compte" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/votre_page" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
+
+
+
+
+
+
 </main>
 
 
@@ -106,15 +121,11 @@
 
 
 
-<footer>
-    <p>© 2026 Café Crème - Lyon 8e</p>
-</footer>
+
 
 <script src="https://elfsightcdn.com/platform.js" async></script>
 
-<footer>
-    <p>© 2026 Café Crème - 12 Rue Professeur Rollet, 69008 Lyon</p>
-</footer>
+
 
 </body>
 </html>

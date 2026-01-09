@@ -364,3 +364,82 @@ footer {
 @media (max-width: 768px) {
     .carousel-item { min-width: 100%; } /* 1 image sur mobile */
 }
+/* --- SECTION ACCÈS & RÉSEAUX --- */
+.access-section {
+    background-color: #f1ece1; /* Votre couleur Crème */
+    padding: 80px 0;
+}
+
+.access-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.map-box {
+    flex: 1;
+    min-width: 300px;
+    border: 5px solid #967969; /* Bordure Marron */
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.info-box {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #967969; /* Texte Marron */
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.address {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+}
+
+.address i {
+    margin-right: 10px;
+}
+
+/* Style des Réseaux Sociaux */
+.social-links h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.social-links .icons a {
+    color: #f1ece1; /* Icône Crème */
+    background-color: #967969; /* Fond Marron */
+    width: 50px;
+    height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    margin-right: 15px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.social-links .icons a:hover {
+    background-color: #333; /* Changement au survol */
+    transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+    .access-container {
+        flex-direction: column;
+    }
+}
