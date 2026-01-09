@@ -28,7 +28,7 @@
         <div class="hero-overlay">
             <div class="hero-text">
                 <h1>CAFÉ CRÈME</h1>
-                <p>Votre escale gourmande au cœur du 8e</p>
+                <p>A Mettre</p>
                 <a href="{{ route('menu') }}" class="btn-yellow">DÉCOUVRIR LA CARTE</a>
             </div>
         </div>
