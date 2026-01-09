@@ -443,3 +443,50 @@ footer {
         flex-direction: column;
     }
 }
+/* --- AVIS GOOGLE --- */
+.reviews-section {
+    padding: 80px 0;
+    background-color: #f1ece1; /* Ton RAL 9001 */
+}
+
+.reviews-title {
+    color: #967969; /* Ton Marron */
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* --- MAP PLEINE LARGEUR (TIRÉE) --- */
+.map-fullwidth {
+    width: 100%;
+    line-height: 0;
+    border-top: 5px solid #967969; /* Ligne marron décorative */
+    border-bottom: 5px solid #967969;
+}
+
+.map-fullwidth iframe {
+    width: 100%;
+    filter: grayscale(0.2); /* Optionnel : pour un look plus doux */
+}
+
+.info-container {
+    background-color: #f1ece1;
+    padding: 60px 20px;
+    text-align: center;
+    color: #967969;
+}
+
+.social-links .icons a {
+    background-color: #967969;
+    color: #f1ece1;
+    width: 50px;
+    height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 10px;
+    font-size: 1.5rem;
+    transition: 0.3s;
+}
