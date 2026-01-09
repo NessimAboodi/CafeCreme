@@ -28,7 +28,7 @@
         <div class="hero-overlay">
             <div class="hero-text">
                 <h1>CAFÉ CRÈME</h1>
-                <p>Votre escale gourmande au cœur de Lyon</p>
+                <p>A Mettre</p>
                 <a href="{{ route('menu') }}" class="btn-yellow">DÉCOUVRIR LA CARTE</a>
             </div>
         </div>
@@ -36,8 +36,8 @@
 
     <section class="intro-section">
         <div class="container">
-            <h2>Bienvenue dans votre nouveau repaire</h2>
-            <p>Une ambiance chaleureuse pour vos pauses café et vos déjeuners.</p>
+            <h2>A mettre</h2>
+            <p>A mettre</p>
         </div>
     </section>
 
@@ -48,7 +48,7 @@
             </div>
             <div class="split-text">
                 <h2>À Propos</h2>
-                <p>Découvrez notre passion pour les produits frais et le fait maison.</p>
+                <p>Histoire</p>
             </div>
         </div>
     </section>
@@ -95,7 +95,7 @@
             <div class="social-links">
                 <h3>SUIVEZ-NOUS</h3>
                 <div class="icons">
-                    <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/cafecreme_lyon/" target="_blank"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
