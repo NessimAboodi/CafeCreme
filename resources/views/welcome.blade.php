@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://elfsightcdn.com/platform.js" async></script>
+    <script src="https://static.elfsight.com/platform/platform.js" async defer></script>
 </head>
 <body>
 
@@ -28,7 +28,7 @@
         <div class="hero-overlay">
             <div class="hero-text">
                 <h1>CAFÉ CRÈME</h1>
-                <p>A Mettre</p>
+                <p>Votre escale gourmande au cœur de Lyon</p>
                 <a href="{{ route('menu') }}" class="btn-yellow">DÉCOUVRIR LA CARTE</a>
             </div>
         </div>
@@ -62,7 +62,7 @@
                     <div class="carousel-track" id="carouselTrack">
                         @for ($i = 1; $i <= 10; $i++)
                             <div class="carousel-item">
-                                <img src="{{ asset('images/photo' . $i . '.png') }}" alt="Photo {{ $i }}">
+                                <img src="{{ asset('images/photo' . $i . '.png') }}" alt="Ambiance {{ $i }}">
                             </div>
                         @endfor
                     </div>
@@ -79,15 +79,15 @@
         </div>
     </section>
 
-    <section class="access-section">
-        <div class="map-fullwidth">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2784.234567!2d4.871234!3d45.741234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4ea0889988999%3A0x8888888888888!2s12%20Rue%20Professeur%20Rollet%2C%2069008%20Lyon!5e0!3m2!1sfr!2sfr!4v1234567890"
-                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
-            </iframe>
-        </div>
+    <section class="map-fullwidth">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2784.871146604987!2d4.871788776829158!3d45.73367121542152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4c20f785b9b87%3A0xc39d480879555546!2s12%20Rue%20Professeur%20Rollet%2C%2069008%20Lyon!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr"
+            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+    </section>
 
-        <div class="info-container">
+    <section class="find-us-section">
+        <div class="container">
             <h2 class="section-title">NOUS TROUVER</h2>
             <p class="address">
                 <i class="fas fa-map-marker-alt"></i> 12 Rue Professeur Rollet, 69008 Lyon
@@ -95,8 +95,26 @@
             <div class="social-links">
                 <h3>SUIVEZ-NOUS</h3>
                 <div class="icons">
-                    <a href="https://www.instagram.com/cafecreme_lyon/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="merged-cta-section">
+        <div class="container merged-cta-container">
+            <div class="cta-half">
+                <h2>Contactez-nous</h2>
+                <p>Une question ? Connectez-vous avec l'équipe du Café Crème.</p>
+                <a href="{{ route('contact') }}" class="btn-contact-white">CONTACTER</a>
+            </div>
+
+            <div class="cta-divider"></div>
+
+            <div class="cta-half">
+                <h2>Nos Conditions</h2>
+                <p>Consultez nos termes et conditions d'utilisation du site.</p>
+                <a href="{{ route('terms') }}" class="btn-contact-white">VOIR LES TERMES</a>
             </div>
         </div>
     </section>

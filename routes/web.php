@@ -26,3 +26,7 @@ Route::get('/reservation', function () {
 Route::get('/contact', function () {
     return view('contact'); // Vous devrez créer resources/views/contact.blade.php
 })->name('contact');
+
+Route::get('/termes-et-conditions', function () {
+    return view('terms');
+})->name('terms');

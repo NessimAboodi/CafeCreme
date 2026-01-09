@@ -490,3 +490,215 @@ footer {
     font-size: 1.5rem;
     transition: 0.3s;
 }
+/* --- CARTE PLEINE LARGEUR --- */
+.map-fullwidth {
+    width: 100%;
+    line-height: 0; /* Évite un espace blanc sous la carte */
+}
+
+.map-fullwidth iframe {
+    width: 100%;
+    border-bottom: 5px solid #967969; /* Ligne marron de finition */
+}
+
+/* --- SECTION INFOS & CTA --- */
+.bottom-info-section {
+    background-color: #f1ece1; /* Crème RAL 9001 */
+    padding: 60px 0 80px 0;
+}
+
+.info-content {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #967969;
+}
+
+.contact-cta-box {
+    background-color: #967969; /* Marron Café Crème */
+    color: #f1ece1;
+    border-radius: 15px;
+    padding: 50px 30px;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto; /* Centre le bloc marron */
+}
+
+.contact-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #f1ece1 !important;
+}
+
+.btn-contact-white {
+    display: inline-block;
+    background-color: #f1ece1;
+    color: #967969;
+    padding: 15px 35px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.btn-contact-white:hover {
+    background-color: #f4d06f; /* Jaune Café Crème */
+}
+/* --- CARTE PLEINE LARGEUR --- */
+.map-fullwidth {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+}
+
+.map-fullwidth iframe {
+    width: 100%;
+    height: 450px;
+    border-top: 5px solid #967969; /* Marron */
+    border-bottom: 5px solid #967969;
+}
+
+/* --- SECTION INFOS & CONTACT --- */
+.bottom-info-section {
+    background-color: #f1ece1; /* Crème RAL 9001 */
+    padding: 60px 0 80px 0;
+}
+
+.info-content {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #967969; /* Marron */
+}
+
+.contact-cta-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.contact-cta-box {
+    background-color: #967969; /* Fond Marron */
+    color: #f1ece1; /* Texte Crème */
+    border-radius: 15px;
+    padding: 50px 30px;
+    text-align: center;
+    width: 100%;
+    max-width: 1100px;
+}
+
+.btn-contact-white {
+    display: inline-block;
+    background-color: #f1ece1; /* Bouton Crème */
+    color: #967969; /* Texte Marron */
+    padding: 15px 40px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+/* --- VARIABLES --- */
+:root {
+    --marron: #967969; /* Marron officiel */
+    --creme: #f1ece1;  /* Crème RAL 9001 */
+    --jaune: #f4d06f;
+    --blanc: #ffffff;
+}
+
+/* --- RESET & GLOBAL --- */
+html, body {
+    margin: 0; padding: 0; width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--creme);
+    color: #333;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* --- NAVBAR --- */
+nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 60px; background-color: var(--marron);
+    position: fixed; top: 0; width: 100%; z-index: 2000; box-sizing: border-box;
+}
+.brand-container img { height: 120px; width: auto; }
+.nav-links a {
+    text-decoration: none; color: var(--creme); margin-left: 25px;
+    font-weight: 700; text-transform: uppercase; font-size: 0.8rem;
+}
+
+/* --- HERO --- */
+.hero-fullscreen {
+    height: 100vh; background: url('../images/cafe-interior.jpg') center/cover no-repeat fixed;
+    display: flex; justify-content: center; align-items: center;
+}
+.hero-overlay { background-color: rgba(0, 0, 0, 0.45); width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+.hero-text h1 { font-size: 6rem; color: var(--blanc); letter-spacing: 8px; text-transform: uppercase; margin: 0; }
+
+.btn-yellow {
+    background-color: var(--jaune); color: var(--blanc);
+    padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 700;
+}
+
+/* --- MAP ÉTIRÉE --- */
+.map-fullwidth { width: 100%; line-height: 0; }
+.map-fullwidth iframe { width: 100%; border-top: 5px solid var(--marron); border-bottom: 5px solid var(--marron); }
+
+/* --- SECTIONS TEXTE --- */
+.intro-section, .find-us-section { padding: 80px 0; text-align: center; color: var(--marron); }
+.section-title { font-size: 2.5rem; font-weight: 700; text-transform: uppercase; }
+
+/* --- NOUVEAU BLOC FUSIONNÉ ÉTIRÉ --- */
+.merged-cta-section {
+    background-color: var(--marron);
+    padding: 80px 0;
+    width: 100%; /* Étiré sur toute la largeur */
+    color: var(--creme);
+}
+
+.merged-cta-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+}
+
+.cta-half { flex: 1; }
+.cta-half h2 { font-size: 2.2rem; margin-bottom: 15px; font-weight: 700; }
+.cta-half p { margin-bottom: 30px; }
+
+.cta-divider {
+    width: 2px;
+    height: 150px;
+    background-color: rgba(241, 236, 225, 0.3); /* Ligne de séparation légère */
+}
+
+.btn-contact-white {
+    background-color: var(--creme);
+    color: var(--marron);
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s;
+    display: inline-block;
+}
+.btn-contact-white:hover { background-color: var(--jaune); color: #333; transform: scale(1.05); }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .merged-cta-container { flex-direction: column; }
+    .cta-divider { display: none; }
+    .hero-text h1 { font-size: 3rem; }
+}
+
+/* --- AUTRES STYLES (CAROUSEL, ETC.) --- */
+.carousel-section { padding: 80px 0; }
+.carousel-track { display: flex; gap: 20px; transition: 0.5s; }
+.carousel-item { min-width: calc(33.333% - 14px); height: 350px; }
+.carousel-item img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
