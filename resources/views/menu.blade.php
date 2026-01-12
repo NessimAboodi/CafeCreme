@@ -29,6 +29,29 @@
 
     <div class="container">
 
+        <section class="menu-section formulas">
+            <h2 class="category-title">🌟 Nos Formules</h2>
+            <div class="formula-grid">
+                <div class="formula-box">
+                    <h3>BRUNCH — 25€</h3>
+                    <p>Citronnade à volonté + Boisson chaude + Focaccia salée avec salade + Dessert (Pancake ou Bowl)</p>
+                </div>
+                <div class="formula-box">
+                    <h3>FORMULE GOÛTER — 6.50€</h3>
+                    <p>Dès 15h. Pâtisserie du jour + Boisson chaude au choix (+2€ pour Superfood)</p>
+                </div>
+                <div class="formula-box">
+                    <h3>HAPPY HOUR — 7.50€</h3>
+                    <p>Tapas du jour + Bière 50cl au choix (Blonde ou Cerise)</p>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
         <section class="menu-section">
             <h2 class="category-title">🍵 Superfood Bar</h2>
             <p class="category-subtitle">Lait végétal disponible : +0.50€</p>
@@ -163,29 +186,13 @@
             </div>
         </section>
 
-        <section class="menu-section formulas">
-            <h2 class="category-title">🌟 Nos Formules</h2>
-            <div class="formula-grid">
-                <div class="formula-box">
-                    <h3>BRUNCH — 25€</h3>
-                    <p>Citronnade à volonté + Boisson chaude + Focaccia salée avec salade + Dessert (Pancake ou Bowl)</p>
-                </div>
-                <div class="formula-box">
-                    <h3>FORMULE GOÛTER — 6.50€</h3>
-                    <p>Dès 15h. Pâtisserie du jour + Boisson chaude au choix (+2€ pour Superfood)</p>
-                </div>
-                <div class="formula-box">
-                    <h3>HAPPY HOUR — 7.50€</h3>
-                    <p>Tapas du jour + Bière 50cl au choix (Blonde ou Cerise)</p>
-                </div>
-            </div>
-        </section>
+
 
     </div>
 </main>
 
 <footer>
-    <p>&copy; 2024 Café Crème / Pabori. Tous droits réservés.</p>
+    <p>2024 Café Crème tous droits réservés.</p>
 </footer>
 
 </body>

@@ -702,3 +702,219 @@ nav {
 .carousel-track { display: flex; gap: 20px; transition: 0.5s; }
 .carousel-item { min-width: calc(33.333% - 14px); height: 350px; }
 .carousel-item img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
+
+/* --- VARIABLES (Vos couleurs exactes) --- */
+:root {
+    --marron: #967969;
+    --creme: #f1ece1;
+    --jaune: #f4d06f;
+    --blanc: #ffffff;
+    --transition: all 0.4s ease-in-out;
+}
+
+/* --- SECTION CONTACT (Fond Crème & Centré) --- */
+.merged-cta-section {
+    background-color: var(--creme); /* Fond Crème #f1ece1 */
+    padding: 120px 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cta-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.cta-content h2 {
+    color: var(--marron); /* Texte en Marron sur fond Crème */
+    font-size: clamp(2rem, 5vw, 3rem);
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.cta-content p {
+    color: var(--marron);
+    font-size: 0.95rem;
+    margin-bottom: 40px;
+    opacity: 0.8;
+}
+
+/* Bouton spécifique pour cette section (Marron pour trancher) */
+.merged-cta-section .btn-yellow {
+    display: inline-block;
+    padding: 18px 50px;
+    background-color: var(--marron);
+    color: var(--creme);
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    transition: var(--transition);
+}
+
+.merged-cta-section .btn-yellow:hover {
+    background-color: var(--jaune);
+    color: var(--marron);
+    transform: translateY(-3px);
+}
+
+/* --- FOOTER (Reste en Marron) --- */
+footer {
+    background-color: var(--marron); /* Fond Marron #967969 */
+    color: var(--creme);
+    padding: 100px 8% 40px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 80px;
+    margin-bottom: 80px;
+}
+
+.footer-col h3 {
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+    color: var(--jaune);
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.footer-col a {
+    color: var(--creme);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-col a:hover {
+    color: var(--jaune);
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(241, 236, 225, 0.1);
+    padding-top: 40px;
+}
+
+.footer-bottom p {
+    font-size: 0.65rem;
+    opacity: 0.5;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.small-terms {
+    color: var(--creme) !important;
+    text-decoration: underline;
+    margin-left: 15px;
+}
+/* --- PAGE RÉSERVATION --- */
+.reserva-page {
+    padding-top: 100px;
+    background-color: var(--creme);
+}
+
+.reserva-hero {
+    text-align: center;
+    padding: 80px 0 40px;
+}
+
+.reserva-hero h1 {
+    font-size: 3rem;
+    letter-spacing: 10px;
+    color: var(--marron);
+    text-transform: uppercase;
+}
+
+.reserva-hero p {
+    font-size: 1rem;
+    letter-spacing: 3px;
+    opacity: 0.7;
+    margin-top: 10px;
+}
+
+/* CARTE POUR LE WIDGET POPINA */
+.booking-section {
+    padding: 40px 0 100px;
+}
+
+.booking-card {
+    background: var(--blanc);
+    padding: 60px;
+    border-radius: 2px; /* Style Gaios : très peu d'arrondi */
+    box-shadow: 0 15px 50px rgba(150, 121, 105, 0.05);
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.placeholder-text {
+    color: var(--marron);
+    font-style: italic;
+    opacity: 0.5;
+    margin-bottom: 20px;
+}
+
+/* SECTION INFO (3 Colonnes aérées) */
+.reserva-info {
+    padding: 80px 0;
+    border-top: 1px solid rgba(150, 121, 105, 0.1);
+    background: var(--creme);
+}
+
+.reserva-info h3 {
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    color: var(--jaune);
+    margin-bottom: 20px;
+}
+
+.reserva-info p {
+    font-size: 0.85rem;
+    color: var(--marron);
+    opacity: 0.9;
+}
+/* Styles Généraux */
+body { font-family: 'Montserrat', sans-serif; background-color: #fcf9f5; color: #333; margin: 0; }
+.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+/* Header Menu */
+.menu-page { padding-top: 120px; }
+.menu-header { text-align: center; margin-bottom: 50px; }
+.menu-header h1 { color: #967969; font-size: 3rem; text-transform: uppercase; margin-bottom: 10px; }
+
+/* Sections */
+.menu-section { background: white; padding: 40px; border-radius: 20px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(150, 121, 105, 0.1); }
+.category-title { color: #967969; border-left: 5px solid #f4d06f; padding-left: 15px; margin-bottom: 25px; text-transform: uppercase; }
+
+/* Grille des plats */
+.menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 50px; }
+.menu-item { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #eee; padding: 12px 0; }
+.menu-item.full { grid-column: span 2; }
+
+.item-name { font-weight: bold; font-size: 1.1rem; }
+.item-desc { font-size: 0.85rem; color: #777; margin-top: 5px; }
+.price { font-weight: bold; color: #967969; white-space: nowrap; margin-left: 10px; }
+
+/* Formules */
+.formulas { background-color: #967969; color: white; }
+.formulas .category-title { color: white; border-color: #f4d06f; }
+.formula-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+.formula-box { background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; text-align: center; border: 1px solid rgba(255,255,255,0.2); }
+.formula-box h3 { margin-top: 0; color: #f4d06f; }
+
+/* Adaptabilité Mobile */
+@media (max-width: 768px) {
+    .menu-grid, .formula-grid { grid-template-columns: 1fr; }
+    .menu-item.full { grid-column: span 1; }
+    .menu-header h1 { font-size: 2rem; }
+}

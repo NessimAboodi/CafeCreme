@@ -55,7 +55,7 @@
 
     <section class="carousel-section">
         <div class="container">
-            <h2 class="carousel-title">L'ambiance en images</h2>
+            <h2 class="carousel-title">les photos que vous avez prises chez nous</h2>
             <div class="carousel-container">
                 <button class="carousel-control prev" id="prevBtn">❮</button>
                 <div class="carousel-window">
@@ -131,3 +131,4 @@
 <script src="{{ asset('js/carousel.js') }}"></script>
 </body>
 </html>
+
