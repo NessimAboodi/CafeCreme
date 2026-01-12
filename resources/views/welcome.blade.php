@@ -75,8 +75,9 @@
     <section class="reviews-section">
         <div class="container">
             <h2 class="reviews-title">CE QUE DISENT NOS CLIENTS</h2>
+            <!-- Elfsight Google Reviews | Untitled Google Reviews -->
+            <script src="https://elfsightcdn.com/platform.js" async></script>
             <div class="elfsight-app-3f663381-0fac-4aa9-8669-025f85949666" data-elfsight-app-lazy></div>
-        </div>
     </section>
 
     <section class="map-fullwidth">
