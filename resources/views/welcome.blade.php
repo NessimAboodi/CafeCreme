@@ -17,7 +17,7 @@
     </a>
     <div class="nav-links">
         <a href="{{ route('home') }}">ACCUEIL</a>
-        <a href="{{ route('carte') }}">LA CARTE</a>
+        <a href="{{ route('menu') }}">CARTE</a>
         <a href="{{ route('reservation') }}">RÉSERVATION</a>
         <a href="{{ route('contact') }}">CONTACT</a>
     </div>
