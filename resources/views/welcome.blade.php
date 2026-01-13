@@ -34,14 +34,14 @@
         </div>
     </header>
 
-    <section class="intro-section">
+    <section class="intro-section reveal">
         <div class="container">
             <h2>A mettre</h2>
             <p>A mettre</p>
         </div>
     </section>
 
-    <section class="split-section dark-bg">
+    <section class="split-section dark-bg reveal">
         <div class="split-wrapper">
             <div class="split-image">
                 <img src="{{ asset('images/1.jpg') }}" alt="Pâtisseries maison">
@@ -53,7 +53,7 @@
         </div>
     </section>
 
-    <section class="carousel-section">
+    <section class="carousel-section reveal">
         <div class="container">
             <h2 class="carousel-title">les photos que vous avez prises chez nous</h2>
             <div class="carousel-container">
@@ -72,7 +72,7 @@
         </div>
     </section>
 
-    <section class="reviews-section">
+    <section class="reviews-section reveal">
         <div class="container">
             <h2 class="reviews-title">CE QUE DISENT NOS CLIENTS</h2>
             <script src="https://elfsightcdn.com/platform.js" async></script>
@@ -80,19 +80,19 @@
         </div>
     </section>
 
-    <section class="map-fullwidth">
+    <section class="map-fullwidth reveal">
         <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2784.871146604987!2d4.871788776829158!3d45.73367121542152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4c20f785b9b87%3A0xc39d480879555546!2s12%20Rue%20Professeur%20Rollet%2C%2069008%20Lyon!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr"
             width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
         </iframe>
     </section>
 
-    <section class="merged-cta-section">
+    <section class="merged-cta-section reveal">
         <div class="container">
             <div class="cta-content">
                 <h2>CONTACTEZ-NOUS</h2>
                 <p>Une question ? Connectez-vous avec l'équipe du Café Crème.</p>
-                <a href="{{ route('contact') }}" class="btn-contact-white">CONTACTER</a>
+                <a href="{{ route('contact') }}" class="btn-yellow-dark">CONTACTER</a>
             </div>
         </div>
     </section>
@@ -129,6 +129,6 @@
 </footer>
 
 <script src="{{ asset('js/carousel.js') }}"></script>
+<script src="{{ asset('js/main.js') }}"></script>
 </body>
 </html>
-

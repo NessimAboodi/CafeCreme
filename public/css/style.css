@@ -918,3 +918,131 @@ body { font-family: 'Montserrat', sans-serif; background-color: #fcf9f5; color: 
     .menu-item.full { grid-column: span 1; }
     .menu-header h1 { font-size: 2rem; }
 }
+/* --- ANIMATIONS DE RÉVÉLATION --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Style de la Navbar au défilement */
+nav.scrolled {
+    padding: 15px 8%;
+
+    box-shadow: 0 5px 20px rgba(150, 121, 105, 0.1);
+}
+
+/* Petit effet fluide sur les images au survol */
+.split-image img, .carousel-item img {
+    transition: transform 0.6s ease;
+}
+
+.split-image:hover img, .carousel-item:hover img {
+    transform: scale(1.03);
+}
+
+
+/* --- VARIABLES --- */
+:root {
+    --marron: #967969;
+    --creme: #f1ece1;
+    --jaune: #f4d06f;
+    --blanc: #ffffff;
+}
+
+/* --- ANIMATIONS REVEAL --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- SECTION CONTACT (FOND CRÈME) --- */
+.merged-cta-section {
+    background-color: var(--creme) !important;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.cta-content h2 {
+    color: var(--marron);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.cta-content p {
+    color: var(--marron);
+    margin-bottom: 30px;
+}
+
+/* LE BOUTON QUI NE MARCHART PLUS */
+.btn-yellow-dark {
+    display: inline-block;
+    background-color: var(--marron); /* Fond marron */
+    color: var(--creme); /* Texte crème */
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+    border: none;
+}
+
+.btn-yellow-dark:hover {
+    background-color: var(--jaune);
+    color: var(--marron);
+    transform: scale(1.05);
+}
+/* --- EFFET PARALLAXE SUR LE HERO --- */
+.hero-fullscreen {
+    background-image: url('../images/cafe-interior.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* L'astuce est ici : l'image reste fixe pendant que le contenu défile */
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- EFFET SUR LA SECTION À PROPOS (Split Section) --- */
+/* Pour que l'image de la section split ait aussi un effet de profondeur */
+.split-image {
+    overflow: hidden; /* Pour que l'image ne dépasse pas */
+}
+
+.split-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+/* Effet au survol : l'image zoom doucement */
+.split-section:hover .split-image img {
+    transform: scale(1.1);
+}
+
+/* --- OPTIMISATION MOBILE --- */
+/* On désactive le background-attachment: fixed sur mobile pour éviter les bugs d'affichage */
+@media (max-width: 1024px) {
+    .hero-fullscreen {
+        background-attachment: scroll;
+    }
+}
+
+
