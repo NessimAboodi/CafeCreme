@@ -15,7 +15,7 @@
     </a>
     <div class="nav-links">
         <a href="/">Accueil</a>
-        <a href="/menu">Menu</a>
+        <a href="/menu">Carte</a>
         <a href="/reservation">Réservation</a>
         <a href="/contact">Contact</a>
     </div>
@@ -53,7 +53,7 @@
 
 
         <section class="menu-section">
-            <h2 class="category-title">🍵 Superfood Bar</h2>
+            <h2 class="category-title"> Superfood Bar</h2>
             <p class="category-subtitle">Lait végétal disponible : +0.50€</p>
             <div class="menu-grid">
                 <div class="menu-item"><span>Matcha Latte</span><span class="price">5.50€</span></div>
@@ -66,7 +66,125 @@
             </div>
         </section>
 
+        <section class="menu-section">
+            <h2 class="category-title"> Coffee Shop</h2>
+            <div class="menu-grid">
+                <div class="menu-item"><span>Espresso</span><span class="price">1.90€</span></div>
+                <div class="menu-item"><span>Lungo</span><span class="price">2.20€</span></div>
+                <div class="menu-item"><span>Doppio</span><span class="price">2.80€</span></div>
+                <div class="menu-item"><span>Cappuccino</span><span class="price">3.50€</span></div>
+                <div class="menu-item"><span>Latte</span><span class="price">4.50€</span></div>
+                <div class="menu-item"><span>Thé</span><span class="price">3.80€</span></div>
+                <div class="menu-item"><span>Chocolat Chaud</span><span class="price">4.20€</span></div>
+                <div class="menu-item"><span>Chocolat Viennois</span><span class="price">4.50€</span></div>
+            </div>
+        </section>
 
+        <section class="menu-section">
+            <h2 class="category-title"> Boissons Fraîches & Bar</h2>
+            <div class="menu-grid">
+                <div class="menu-item"><span>Sirop</span><span class="price">2.50€</span></div>
+                <div class="menu-item"><span>Diabolo</span><span class="price">3.10€</span></div>
+                <div class="menu-item"><span>Jus de fruit</span><span class="price">3.50€</span></div>
+                <div class="menu-item"><span>Citronnade Maison</span><span class="price">3.30€</span></div>
+                <div class="menu-item"><span>Coca Cola Zero / Schweppes</span><span class="price">3.00€</span></div>
+                <div class="menu-item"><span>Eau Pétillante</span><span class="price">1.50€</span></div>
+                <div class="menu-item"><span>RedBull</span><span class="price">2.50€</span></div>
+                <div class="menu-item"><span>Blonde Pélican (25cl / 50cl)</span><span class="price">4.50€ / 8.00€</span></div>
+                <div class="menu-item"><span>Rouge Mort Subite (25cl / 50cl)</span><span class="price">5.00€ / 8.50€</span></div>
+                <div class="menu-item"><span>Cocktail Création / Spritz</span><span class="price">6.00€</span></div>
+            </div>
+        </section>
+
+        <section class="menu-section">
+            <h2 class="category-title">Côté Salé</h2>
+            <div class="menu-grid">
+                <div class="menu-item full">
+                    <div class="item-info">
+                        <span class="item-name">Bagel Saumon</span>
+                        <p class="item-desc">Cream cheese, aneth, citron, salade, concombre</p>
+                    </div>
+                    <span class="price">7.50€</span>
+                </div>
+                <div class="menu-item full">
+                    <div class="item-info">
+                        <span class="item-name">Bagel Burrata</span>
+                        <p class="item-desc">Burrata truffée, pesto rosso, jambon de Parme</p>
+                    </div>
+                    <span class="price">7.50€</span>
+                </div>
+                <div class="menu-item full">
+                    <div class="item-info">
+                        <span class="item-name">Bagel Poulet (Halal)</span>
+                        <p class="item-desc">Sauce creamy curry maison, guacamole, salade</p>
+                    </div>
+                    <span class="price">7.50€</span>
+                </div>
+                <div class="menu-item full">
+                    <div class="item-info">
+                        <span class="item-name">Wrap Thon et Crudités</span>
+                    </div>
+                    <span class="price">5.90€</span>
+                </div>
+                <div class="menu-item full">
+                    <div class="item-info">
+                        <span class="item-name">Focaccia (Saumon, Végé ou Jambon Cru)</span>
+                        <p class="item-desc">Recettes garnies avec produits frais et salade</p>
+                    </div>
+                    <span class="price">8.50€</span>
+                </div>
+                <div class="menu-item full highlight-item">
+                    <div class="item-info">
+                        <span class="item-name">Plat du Jour : Carpaccio de Bœuf</span>
+                    </div>
+                    <span class="price">9.50€</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-section">
+            <h2 class="category-title"> Salades & Bowls</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <span class="item-name">Salade Grecque</span>
+                        <p class="item-desc">Concombre, tomate, olive noire, feta</p>
+                    </div>
+                    <span class="price">7.50€</span>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <span class="item-name">Salade Caesar</span>
+                        <p class="item-desc">Poulet rôti, tomate, croûtons, emmental</p>
+                    </div>
+                    <span class="price">7.50€</span>
+                </div>
+                <div class="menu-item"><span>Poke Bowl (à composer)</span><span class="price">7.50€</span></div>
+            </div>
+        </section>
+
+        <section class="menu-section">
+            <h2 class="category-title"> Les Douceurs</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <span class="item-name">Pancake (saveur au choix)</span>
+                        <p class="item-desc">Chocolat, Spéculoos, Caramel, Pistache</p>
+                    </div>
+                    <span class="price">6.50€</span>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <span class="item-name">Bowl Maison (Overnight avoine)</span>
+                        <p class="item-desc">Lait de coco, fromage, fruits rouges</p>
+                    </div>
+                    <span class="price">4.50€</span>
+                </div>
+                <div class="menu-item"><span>Matcha Pudding</span><span class="price">4.50€</span></div>
+                <div class="menu-item"><span>Cookie Maison</span><span class="price">8.50€</span></div>
+                <div class="menu-item"><span>Cake de la semaine</span><span class="price">8.50€</span></div>
+            </div>
+        </section>
 
 
 
