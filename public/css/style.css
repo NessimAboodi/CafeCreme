@@ -1045,4 +1045,155 @@ nav.scrolled {
     }
 }
 
+/* --- ADAPTATION TÉLÉPHONE (MOBILE) --- */
+@media (max-width: 768px) {
+    /* Menu Burger */
+    .menu-toggle {
+        display: block !important;
+        cursor: pointer;
+        z-index: 2001;
+    }
 
+    .nav-links {
+        position: fixed;
+        left: -100%; /* Cache le menu à gauche */
+        top: 0;
+        flex-direction: column;
+        background-color: #967969; /* Marron */
+        width: 100%;
+        height: 100vh;
+        justify-content: center;
+        text-align: center;
+        transition: 0.4s ease;
+        z-index: 2000;
+    }
+
+    /* Quand on clique sur le burger, le menu arrive */
+    .nav-links.active {
+        left: 0;
+    }
+
+    .nav-links a {
+        margin: 20px 0;
+        font-size: 1.5rem;
+    }
+
+    /* Sections Split (Histoire) : on met l'image au dessus du texte */
+    .split-wrapper {
+        flex-direction: column !important;
+    }
+
+    .split-image, .split-text {
+        width: 100% !important;
+        padding: 30px 20px !important;
+    }
+
+    .split-image img {
+        height: 300px !important;
+    }
+
+    /* Hero Text : on réduit la taille pour que ça ne déborde pas */
+    .hero-text h1 {
+        font-size: 2.8rem !important;
+        letter-spacing: 5px !important;
+    }
+
+    /* Footer : une seule colonne */
+    .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 30px;
+        text-align: center;
+    }
+}
+/* --- NAVIGATION & BOUTON UNIQUE --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    position: fixed;
+    width: 100%;
+    z-index: 3000;
+    transition: 0.3s;
+}
+
+.explorer-btn {
+    display: none; /* Caché sur PC */
+    background: #967969;
+    color: #f1ece1;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 40px;
+    font-weight: 700;
+    cursor: pointer;
+    z-index: 4000;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon-burger span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: white;
+    margin: 3px 0;
+}
+
+/* Menu mobile plein écran */
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: rgba(150, 121, 105, 0.98);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s ease-in-out;
+    z-index: 3500;
+}
+
+.nav-overlay.active { right: 0; }
+
+.menu-items { display: flex; flex-direction: column; gap: 30px; text-align: center; }
+.menu-items a { color: #f1ece1; font-size: 2rem; text-decoration: none; font-family: 'Playfair Display', serif; }
+
+/* --- RESPONSIVE MOBILE (TOUT TÉLÉPHONE) --- */
+@media (max-width: 768px) {
+    .desktop-only { display: none; }
+    .explorer-btn { display: flex; }
+
+    /* Hero */
+    .hero-text h1 { font-size: 2.8rem; letter-spacing: 3px; }
+
+    /* Sections Split (Image + Texte) */
+    .split-wrapper {
+        flex-direction: column !important; /* Image au-dessus du texte */
+    }
+
+    .split-image, .split-text {
+        width: 100% !important;
+        padding: 40px 20px !important;
+        text-align: center;
+    }
+
+    .split-image img { height: 300px; object-fit: cover; }
+
+    /* Carousel */
+    .carousel-item { min-width: 100%; }
+
+    /* Footer */
+    .footer-grid {
+        grid-template-columns: 1fr; /* Une seule colonne */
+        text-align: center;
+        gap: 30px;
+    }
+    .footer-socials { justify-content: center; }
+}
+
+/* --- TRÈS PETITS TÉLÉPHONES (iPhone SE) --- */
+@media (max-width: 380px) {
+    .hero-text h1 { font-size: 2.2rem; }
+    .explorer-btn { padding: 8px 15px; font-size: 0.8rem; }
+}

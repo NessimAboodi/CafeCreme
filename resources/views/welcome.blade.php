@@ -2,9 +2,9 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Café Crème - Accueil</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://static.elfsight.com/platform/platform.js" async defer></script>
@@ -15,7 +15,25 @@
     <a href="{{ route('home') }}" class="brand-container">
         <img src="{{ asset('images/logo1.png') }}" alt="Logo Café Crème">
     </a>
-    <div class="nav-links">
+
+    <button class="explorer-btn" id="menu-trigger">
+        <span class="btn-label">EXPLORER</span>
+        <div class="icon-burger">
+            <span></span>
+            <span></span>
+        </div>
+    </button>
+
+    <div class="nav-overlay" id="nav-overlay">
+        <div class="menu-items">
+            <a href="{{ route('home') }}">ACCUEIL</a>
+            <a href="{{ route('menu') }}">CARTE</a>
+            <a href="{{ route('reservation') }}">RÉSERVATION</a>
+            <a href="{{ route('contact') }}">CONTACT</a>
+        </div>
+    </div>
+
+    <div class="nav-links desktop-only">
         <a href="{{ route('home') }}">ACCUEIL</a>
         <a href="{{ route('menu') }}">CARTE</a>
         <a href="{{ route('reservation') }}">RÉSERVATION</a>
@@ -75,16 +93,12 @@
     <section class="reviews-section reveal">
         <div class="container">
             <h2 class="reviews-title">CE QUE DISENT NOS CLIENTS</h2>
-            <script src="https://elfsightcdn.com/platform.js" async></script>
             <div class="elfsight-app-3f663381-0fac-4aa9-8669-025f85949666" data-elfsight-app-lazy></div>
         </div>
     </section>
 
     <section class="map-fullwidth reveal">
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2784.871146604987!2d4.871788776829158!3d45.73367121542152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4c20f785b9b87%3A0xc39d480879555546!2s12%20Rue%20Professeur%20Rollet%2C%2069008%20Lyon!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr"
-            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
-        </iframe>
+        <iframe src="https://www.google.com/maps/embed?..." width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </section>
 
     <section class="merged-cta-section reveal">
@@ -105,7 +119,6 @@
             <p><i class="fas fa-map-marker-alt"></i> 12 Rue Professeur Rollet<br>69008 Lyon</p>
             <p><i class="fas fa-phone"></i> +33 09 86 15 66 57</p>
         </div>
-
         <div class="footer-col">
             <h3>EXPLORER</h3>
             <ul>
@@ -114,7 +127,6 @@
                 <li><a href="{{ route('reservation') }}">RÉSERVATION</a></li>
             </ul>
         </div>
-
         <div class="footer-col">
             <h3>SUIVEZ-NOUS</h3>
             <div class="footer-socials">
@@ -122,7 +134,6 @@
             </div>
         </div>
     </div>
-
     <div class="footer-bottom">
         <p>© 2026 Café Crème - Lyon 8e | <a href="{{ route('terms') }}" class="small-terms">Nos Conditions</a></p>
     </div>
