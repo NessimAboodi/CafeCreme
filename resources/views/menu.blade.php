@@ -10,14 +10,32 @@
 <body>
 
 <nav>
-    <a href="/" class="brand-container">
-        <img src="{{ asset('images/logo1.png') }}" alt="Logo">
+    <a href="{{ route('home') }}" class="brand-container">
+        <img src="{{ asset('images/logo1.png') }}" alt="Logo Café Crème">
     </a>
-    <div class="nav-links">
-        <a href="/">Accueil</a>
-        <a href="/menu">Carte</a>
-        <a href="/reservation">Réservation</a>
-        <a href="/contact">Contact</a>
+
+    <button class="explorer-btn" id="menu-trigger">
+        <span class="btn-label">EXPLORER</span>
+        <div class="icon-burger">
+            <span></span>
+            <span></span>
+        </div>
+    </button>
+
+    <div class="nav-overlay" id="nav-overlay">
+        <div class="menu-items">
+            <a href="{{ route('home') }}">ACCUEIL</a>
+            <a href="{{ route('menu') }}">CARTE</a>
+            <a href="{{ route('reservation') }}">RÉSERVATION</a>
+            <a href="{{ route('contact') }}">CONTACT</a>
+        </div>
+    </div>
+
+    <div class="nav-links desktop-only">
+        <a href="{{ route('home') }}">ACCUEIL</a>
+        <a href="{{ route('menu') }}">CARTE</a>
+        <a href="{{ route('reservation') }}">RÉSERVATION</a>
+        <a href="{{ route('contact') }}">CONTACT</a>
     </div>
 </nav>
 
@@ -47,11 +65,6 @@
             </div>
         </section>
 
-
-
-
-
-
         <section class="menu-section">
             <h2 class="category-title"> Superfood Bar</h2>
             <p class="category-subtitle">Lait végétal disponible : +0.50€</p>
@@ -71,7 +84,7 @@
             <div class="menu-grid">
                 <div class="menu-item"><span>Espresso</span><span class="price">1.90€</span></div>
                 <div class="menu-item"><span>Lungo</span><span class="price">2.20€</span></div>
-                <div class="menu-item"><span>Doppio</span><span class="price">2.80€</span></div>
+                <div class="item-item"><span>Doppio</span><span class="price">2.80€</span></div>
                 <div class="menu-item"><span>Cappuccino</span><span class="price">3.50€</span></div>
                 <div class="menu-item"><span>Latte</span><span class="price">4.50€</span></div>
                 <div class="menu-item"><span>Thé</span><span class="price">3.80€</span></div>
@@ -185,9 +198,6 @@
                 <div class="menu-item"><span>Cake de la semaine</span><span class="price">8.50€</span></div>
             </div>
         </section>
-
-
-
     </div>
 </main>
 
@@ -195,5 +205,6 @@
     <p>2024 Café Crème tous droits réservés.</p>
 </footer>
 
+<script src="{{ asset('js/main.js') }}"></script>
 </body>
 </html>

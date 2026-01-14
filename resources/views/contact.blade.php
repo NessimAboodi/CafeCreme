@@ -13,15 +13,33 @@
     <a href="{{ route('home') }}" class="brand-container">
         <img src="{{ asset('images/logo1.png') }}" alt="Logo Café Crème">
     </a>
-    <div class="nav-links">
-        <a href="{{ route('home') }}">Accueil</a>
-        <a href="{{ route('menu') }}">Carte</a>
-        <a href="{{ route('reservation') }}">Réservation</a>
-        <a href="{{ route('contact') }}">Contact</a>
+
+    <button class="explorer-btn" id="menu-trigger">
+        <span class="btn-label">EXPLORER</span>
+        <div class="icon-burger">
+            <span></span>
+            <span></span>
+        </div>
+    </button>
+
+    <div class="nav-overlay" id="nav-overlay">
+        <div class="menu-items">
+            <a href="{{ route('home') }}">ACCUEIL</a>
+            <a href="{{ route('menu') }}">CARTE</a>
+            <a href="{{ route('reservation') }}">RÉSERVATION</a>
+            <a href="{{ route('contact') }}">CONTACT</a>
+        </div>
+    </div>
+
+    <div class="nav-links desktop-only">
+        <a href="{{ route('home') }}">ACCUEIL</a>
+        <a href="{{ route('menu') }}">CARTE</a>
+        <a href="{{ route('reservation') }}">RÉSERVATION</a>
+        <a href="{{ route('contact') }}">CONTACT</a>
     </div>
 </nav>
 
-<main> class="lobut-style-contact">
+<main class="lobut-style-contact">
     <section class="contact-header">
         <h1>Contactez-nous</h1>
         <p>Une question ? Une envie de café ? Utilisez le formulaire ci-dessous ou passez nous voir !</p>
@@ -77,8 +95,8 @@
             <button type="submit" class="btn-submit">Envoyer mon message</button>
         </form>
     </section>
+</main>
 
-
-
+<script src="{{ asset('js/main.js') }}"></script>
 </body>
 </html>

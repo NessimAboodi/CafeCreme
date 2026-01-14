@@ -1197,3 +1197,105 @@ nav {
     .hero-text h1 { font-size: 2.2rem; }
     .explorer-btn { padding: 8px 15px; font-size: 0.8rem; }
 }
+
+
+/* ============================================================
+   MOBILE OPTIMIZATION (Toutes les pages)
+   ============================================================ */
+
+@media (max-width: 768px) {
+    /* --- NAVIGATION --- */
+    nav {
+        padding: 10px 20px;
+    }
+    .brand-container img {
+        height: 80px; /* Logo plus petit sur mobile */
+    }
+    .desktop-only {
+        display: none !important;
+    }
+    .explorer-btn {
+        display: flex !important; /* Force l'affichage du bouton explorer */
+    }
+
+    /* --- TITRES GÉNÉRAUX --- */
+    h1 { font-size: 2.5rem !important; }
+    h2 { font-size: 1.8rem !important; }
+
+    /* --- PAGE ACCUEIL (Sections Split) --- */
+    .split-wrapper, .split-wrapper.reverse {
+        flex-direction: column !important;
+    }
+    .split-image, .split-text {
+        width: 100% !important;
+        padding: 30px 20px !important;
+        text-align: center;
+    }
+    .split-image img {
+        height: 250px !important;
+    }
+
+    /* --- PAGE MENU (Carte) --- */
+    .menu-page {
+        padding-top: 100px;
+    }
+    .formula-grid {
+        grid-template-columns: 1fr !important; /* Formules l'une sous l'autre */
+        gap: 15px;
+    }
+    .menu-grid {
+        grid-template-columns: 1fr !important; /* Plats l'un sous l'autre */
+        gap: 10px;
+    }
+    .menu-item.full {
+        grid-column: span 1 !important;
+    }
+    .menu-section {
+        padding: 20px !important;
+        margin-bottom: 20px;
+    }
+
+    /* --- PAGE CONTACT --- */
+    .contact-quick-info {
+        flex-direction: column !important;
+        gap: 15px;
+    }
+    .contact-form-section {
+        padding: 25px !important;
+    }
+    .form-row {
+        flex-direction: column !important;
+        gap: 0;
+    }
+
+    /* --- PAGE RÉSERVATION --- */
+    .booking-card {
+        padding: 20px !important;
+        min-height: 400px;
+    }
+    .reserva-hero h1 {
+        font-size: 2rem !important;
+        letter-spacing: 5px;
+    }
+
+    /* --- FOOTER --- */
+    .footer-grid {
+        grid-template-columns: 1fr !important;
+        text-align: center;
+        gap: 40px;
+    }
+    .footer-socials {
+        justify-content: center;
+    }
+}
+
+/* Ajustements pour très petits écrans (iPhone SE, etc.) */
+@media (max-width: 380px) {
+    .hero-text h1 {
+        font-size: 2rem !important;
+    }
+    .btn-yellow, .btn-yellow-dark {
+        padding: 12px 25px !important;
+        font-size: 0.8rem;
+    }
+}

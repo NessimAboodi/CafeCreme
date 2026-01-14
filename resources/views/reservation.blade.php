@@ -7,11 +7,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
-<body style="background-color: #f1ece1;"> <nav>
+<body style="background-color: #f1ece1;">
+
+<nav>
     <a href="{{ route('home') }}" class="brand-container">
         <img src="{{ asset('images/logo1.png') }}" alt="Logo Café Crème">
     </a>
-    <div class="nav-links">
+
+    <button class="explorer-btn" id="menu-trigger">
+        <span class="btn-label">EXPLORER</span>
+        <div class="icon-burger">
+            <span></span>
+            <span></span>
+        </div>
+    </button>
+
+    <div class="nav-overlay" id="nav-overlay">
+        <div class="menu-items">
+            <a href="{{ route('home') }}">ACCUEIL</a>
+            <a href="{{ route('menu') }}">CARTE</a>
+            <a href="{{ route('reservation') }}">RÉSERVATION</a>
+            <a href="{{ route('contact') }}">CONTACT</a>
+        </div>
+    </div>
+
+    <div class="nav-links desktop-only">
         <a href="{{ route('home') }}">ACCUEIL</a>
         <a href="{{ route('menu') }}">CARTE</a>
         <a href="{{ route('reservation') }}">RÉSERVATION</a>
@@ -64,5 +84,6 @@
     </div>
 </footer>
 
+<script src="{{ asset('js/main.js') }}"></script>
 </body>
 </html>
