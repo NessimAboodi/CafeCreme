@@ -133,9 +133,7 @@
                         <p class="item-desc">Sauce creamy curry maison, guacamole, salade</p>
                     </div>
                     <span class="price">7.50€</span>
-                </div>
-                
-                </div>
+                    
                 <div class="menu-item full">
                     <div class="item-info">
                         <span class="item-name">Focaccia (Saumon, Végé ou Jambon Cru)</span>
