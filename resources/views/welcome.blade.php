@@ -98,7 +98,15 @@
     </section>
 
     <section class="map-fullwidth reveal">
-        <iframe src="https://www.google.com/maps/embed?..." width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <iframe
+            src="https://maps.google.com/maps?q=Cafe+Creme+12+Rue+Professeur+Rollet+69008+Lyon&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            width="100%"
+            height="450"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
     </section>
 
     <section class="merged-cta-section reveal">

@@ -202,9 +202,7 @@
     </div>
 </main>
 
-<footer>
-    <p>2024 Café Crème tous droits réservés.</p>
-</footer>
+
 
 <script src="{{ asset('js/main.js') }}"></script>
 </body>

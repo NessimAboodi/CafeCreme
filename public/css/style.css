@@ -218,12 +218,24 @@ nav {
     padding-top: 150px; /* Espace pour la navbar fixe */
 }
 
+/* --- 6. PAGE CONTACT (MODIFIÉ) --- */
+.contact-header {
+    text-align: center;      /* Centre le titre ET le texte */
+    margin-bottom: 60px;
+}
+
 .contact-header h1 {
     font-size: 3rem;
     color: #967969;
-    text-align: center;
     text-transform: uppercase;
-    margin-bottom: 60px;
+    margin-bottom: 15px;     /* Espace entre le titre et la phrase */
+}
+
+.contact-header p {
+    color: #967969;          /* Garde la couleur marron pour la phrase */
+    font-size: 1.1rem;
+    max-width: 800px;        /* Empêche la phrase d'être trop large sur PC */
+    margin: 0 auto;          /* Centre le bloc de texte lui-même */
 }
 
 .contact-quick-info {
