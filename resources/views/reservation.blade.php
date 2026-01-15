@@ -7,6 +7,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <style>
+        /* Ajustement spécifique pour que le module de réservation prenne bien toute la place */
+        .booking-card {
+            padding: 20px !important; /* Réduit le padding pour laisser plus de place au module */
+            display: block !important; /* Désactive le flex centering pour l'iframe */
+            overflow: hidden;
+            min-height: 650px; /* Taille optimale pour le calendrier ViteUneTable */
+        }
+        iframe {
+            border: none;
+            width: 100%;
+            height: 600px;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 <body style="background-color: #f1ece1;">
 
@@ -51,11 +66,10 @@
     <section class="booking-section">
         <div class="container">
             <div class="booking-card">
-                <div id="popina-booking-container">
-                    <p style="color: #967969; font-style: italic; opacity: 0.6;">
-                        Chargement du module de réservation Popina...
-                    </p>
-                </div>
+                <iframe
+                    src="https://app.viteunetable.com/fr/reservation/cafecreme/"
+                    title="Réservation ViteUneTable Café Crème">
+                </iframe>
             </div>
         </div>
     </section>
@@ -65,7 +79,7 @@
     <div class="container footer-grid">
         <div class="footer-col">
             <h3>NOUS TROUVER</h3>
-            <p>12 Rue Professeur Rollet<br>69008 Lyon</p>
+            <p><i class="fas fa-map-marker-alt"></i> 12 Rue Professeur Rollet<br>69008 Lyon</p>
         </div>
         <div class="footer-col">
             <h3>EXPLORER</h3>
@@ -77,7 +91,9 @@
         </div>
         <div class="footer-col">
             <h3>SUIVEZ-NOUS</h3>
-            <p><a href="https://www.instagram.com/cafecreme_lyon/">INSTAGRAM</a></p>
+            <div class="footer-socials">
+                <a href="https://www.instagram.com/cafecreme_lyon/" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
         </div>
     </div>
     <div class="footer-bottom">

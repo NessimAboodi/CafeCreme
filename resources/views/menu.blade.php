@@ -99,7 +99,7 @@
                     </div>
                     <span class="price">7.50€</span>
                 </div>
-                
+
                 <div class="menu-item full">
                     <div class="item-info">
                         <span class="item-name">Panini</span>

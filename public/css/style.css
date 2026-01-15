@@ -1331,3 +1331,17 @@ ul {
     font-size: 0.85rem;
 }
 
+/* Appliquer le marron à toutes les sections SAUF les formules */
+.menu-section:not(.formulas) .category-title,
+.menu-section:not(.formulas) .category-subtitle,
+.menu-section:not(.formulas) .item-name,
+.menu-section:not(.formulas) .item-desc,
+.menu-section:not(.formulas) .price,
+.menu-section:not(.formulas) .menu-item span {
+    color: #967969 !important;
+}
+
+/* Optionnel : Assurer que les bordures sous les plats soient aussi discrètes */
+.menu-section:not(.formulas) .menu-item {
+    border-bottom: 1px solid rgba(150, 121, 105, 0.2) !important;
+}
