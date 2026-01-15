@@ -6,6 +6,7 @@
     <title>Menu Complet - Café Crème</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
@@ -208,3 +209,34 @@
 <script src="{{ asset('js/main.js') }}"></script>
 </body>
 </html>
+
+
+<footer>
+    <div class="container footer-grid">
+        <div class="footer-col">
+            <h3>NOUS TROUVER</h3>
+            <p><i class="fas fa-map-marker-alt"></i> 12 Rue Professeur Rollet<br>69008 Lyon</p>
+            <p><i class="fas fa-phone"></i> +33 09 86 15 66 57</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>EXPLORER</h3>
+            <ul>
+                <li><a href="{{ route('home') }}">ACCUEIL</a></li>
+                <li><a href="{{ route('menu') }}">LA CARTE</a></li>
+                <li><a href="{{ route('reservation') }}">RÉSERVATION</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>SUIVEZ-NOUS</h3>
+            <div class="footer-socials">
+                <a href="https://www.instagram.com/cafecreme_lyon/" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 Café Crème - Lyon 8e | <a href="{{ route('terms') }}" class="small-terms">Nos Conditions</a></p>
+    </div>
+</footer>
