@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        .item-name, .price, h3, .menu-item span {
+            font-weight: 400 !important;
+        }
+        .item-desc {
+            font-weight: 400;
+        }
+    </style>
 </head>
 <body>
 
@@ -60,9 +69,83 @@
                     <p>Dès 15h. Pâtisserie du jour + Boisson chaude au choix (+2€ pour Superfood)</p>
                 </div>
                 <div class="formula-box">
-                    <h3>(NOT SURE )HAPPY HOUR — 7.50€</h3>
+                    <h3>HAPPY HOUR — 7.50€</h3>
                     <p>Tapas du jour + Bière 50cl au choix (Blonde ou Cerise)</p>
                 </div>
+            </div>
+        </section>
+
+        <section class="menu-section">
+            <h2 class="category-title">Côté Salé</h2>
+            <div class="menu-grid">
+                <div class="menu-item full">
+                    <div class="item-info">
+                        <span class="item-name">Bagel Saumon</span>
+                        <p class="item-desc">Cream cheese, aneth, citron, salade, concombre</p>
+                    </div>
+                    <span class="price">7.50€</span>
+                </div>
+                <div class="menu-item full">
+                    <div class="item-info">
+                        <span class="item-name">Bagel Burrata</span>
+                        <p class="item-desc">Burrata truffée, pesto rosso, jambon de Parme</p>
+                    </div>
+                    <span class="price">7.50€</span>
+                </div>
+                <div class="menu-item full">
+                    <div class="item-info">
+                        <span class="item-name">Bagel Poulet (Halal)</span>
+                        <p class="item-desc">Sauce creamy curry maison, guacamole, salade</p>
+                    </div>
+                    <span class="price">7.50€</span>
+                </div>
+                
+                <div class="menu-item full">
+                    <div class="item-info">
+                        <span class="item-name">Panini</span>
+                        <p class="item-desc">Pesto vert, mozzarella, jambon dinde halal</p>
+                    </div>
+                    <span class="price">7.50€</span>
+                </div>
+
+                <div class="menu-item full">
+                    <div class="item-info">
+                        <span class="item-name">Croq</span>
+                        <p class="item-desc">Huile de truffe, mozzarella, jambon dinde halal</p>
+                    </div>
+                    <span class="price">7.50€</span>
+                </div>
+
+                <div class="menu-item full">
+                    <div class="item-info">
+                        <span class="item-name">Focaccia (Saumon, Végé ou Jambon Cru)</span>
+                        <p class="item-desc">Recettes garnies avec produits frais et salade</p>
+                    </div>
+                    <span class="price">8.50€</span>
+                </div>
+
+
+            </div>
+        </section>
+
+        <section class="menu-section">
+            <h2 class="category-title"> Salades & Bowls</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <span class="item-name">Salade Grecque</span>
+                        <p class="item-desc">Concombre, tomate, olive noire, feta</p>
+                    </div>
+                    <span class="price">7.50€</span>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <span class="item-name">Salade Caesar</span>
+                        <p class="item-desc">Poulet rôti, tomate, croûtons, emmental</p>
+                    </div>
+                    <span class="price">7.50€</span>
+                </div>
+                <div class="menu-item"><span>Poke Bowl (à composer)</span><span class="price">7.50€</span></div>
             </div>
         </section>
 
@@ -98,7 +181,6 @@
             <h2 class="category-title"> Boissons Fraîches & Bar</h2>
             <div class="menu-grid">
                 <div class="menu-item"><span>Sirop</span><span class="price">2.50€</span></div>
-
                 <div class="menu-item"><span>Jus de fruit</span><span class="price">3.50€</span></div>
                 <div class="menu-item"><span>Citronnade Maison</span><span class="price">3.30€</span></div>
                 <div class="menu-item"><span>Coca Cola Zero / Schweppes</span><span class="price">3.00€</span></div>
@@ -107,61 +189,6 @@
                 <div class="menu-item"><span>Blonde Pélican (25cl / 50cl)</span><span class="price">4.50€ / 8.00€</span></div>
                 <div class="menu-item"><span>Rouge Mort Subite (25cl / 50cl)</span><span class="price">5.00€ / 8.50€</span></div>
                 <div class="menu-item"><span>Cocktail Création / Spritz</span><span class="price">6.00€</span></div>
-            </div>
-        </section>
-
-        <section class="menu-section">
-            <h2 class="category-title">Côté Salé</h2>
-            <div class="menu-grid">
-                <div class="menu-item full">
-                    <div class="item-info">
-                        <span class="item-name">Bagel Saumon</span>
-                        <p class="item-desc">Cream cheese, aneth, citron, salade, concombre</p>
-                    </div>
-                    <span class="price">7.50€</span>
-                </div>
-                <div class="menu-item full">
-                    <div class="item-info">
-                        <span class="item-name">Bagel Burrata</span>
-                        <p class="item-desc">Burrata truffée, pesto rosso, jambon de Parme</p>
-                    </div>
-                    <span class="price">7.50€</span>
-                </div>
-                <div class="menu-item full">
-                    <div class="item-info">
-                        <span class="item-name">Bagel Poulet (Halal)</span>
-                        <p class="item-desc">Sauce creamy curry maison, guacamole, salade</p>
-                    </div>
-                    <span class="price">7.50€</span>
-                    
-                <div class="menu-item full">
-                    <div class="item-info">
-                        <span class="item-name">Focaccia (Saumon, Végé ou Jambon Cru)</span>
-                        <p class="item-desc">Recettes garnies avec produits frais et salade</p>
-                    </div>
-                    <span class="price">8.50€</span>
-
-            </div>
-        </section>
-
-        <section class="menu-section">
-            <h2 class="category-title"> Salades & Bowls</h2>
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <div class="item-info">
-                        <span class="item-name">Salade Grecque</span>
-                        <p class="item-desc">Concombre, tomate, olive noire, feta</p>
-                    </div>
-                    <span class="price">7.50€</span>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <span class="item-name">Salade Caesar</span>
-                        <p class="item-desc">Poulet rôti, tomate, croûtons, emmental</p>
-                    </div>
-                    <span class="price">7.50€</span>
-                </div>
-                <div class="menu-item"><span>Poke Bowl (à composer)</span><span class="price">7.50€</span></div>
             </div>
         </section>
 
@@ -190,12 +217,9 @@
     </div>
 </main>
 
-
-
 <script src="{{ asset('js/main.js') }}"></script>
 </body>
 </html>
-
 
 <footer>
     <div class="container footer-grid">
