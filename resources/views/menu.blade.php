@@ -85,7 +85,7 @@
             <div class="menu-grid">
                 <div class="menu-item"><span>Espresso</span><span class="price">1.90€</span></div>
                 <div class="menu-item"><span>Lungo</span><span class="price">2.20€</span></div>
-                <div class="item-item"><span>Doppio</span><span class="price">2.80€</span></div>
+                <div class="menu-item"><span>Doppio</span><span class="price">2.80€</span></div>
                 <div class="menu-item"><span>Cappuccino</span><span class="price">3.50€</span></div>
                 <div class="menu-item"><span>Latte</span><span class="price">4.50€</span></div>
                 <div class="menu-item"><span>Thé</span><span class="price">3.80€</span></div>
@@ -98,7 +98,7 @@
             <h2 class="category-title"> Boissons Fraîches & Bar</h2>
             <div class="menu-grid">
                 <div class="menu-item"><span>Sirop</span><span class="price">2.50€</span></div>
-                <div class="menu-item"><span>Diabolo</span><span class="price">3.10€</span></div>
+
                 <div class="menu-item"><span>Jus de fruit</span><span class="price">3.50€</span></div>
                 <div class="menu-item"><span>Citronnade Maison</span><span class="price">3.30€</span></div>
                 <div class="menu-item"><span>Coca Cola Zero / Schweppes</span><span class="price">3.00€</span></div>
