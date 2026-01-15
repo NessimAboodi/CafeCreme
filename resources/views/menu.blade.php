@@ -43,7 +43,7 @@
 <main class="menu-page">
     <header class="menu-header">
         <h1>La Carte du Café Crème</h1>
-        <p>12 RUE PROFESSEUR ROLLET, LYON 69008</p>
+        <p>CHEZ NOUS ÇA PASSE CRÈME !</p>
     </header>
 
     <div class="container">
