@@ -60,7 +60,7 @@
                     <p>Dès 15h. Pâtisserie du jour + Boisson chaude au choix (+2€ pour Superfood)</p>
                 </div>
                 <div class="formula-box">
-                    <h3>HAPPY HOUR — 7.50€</h3>
+                    <h3>(NOT SURE )HAPPY HOUR — 7.50€</h3>
                     <p>Tapas du jour + Bière 50cl au choix (Blonde ou Cerise)</p>
                 </div>
             </div>
@@ -75,7 +75,7 @@
                 <div class="menu-item"><span>Pink Matcha Latte</span><span class="price">6.50€</span></div>
                 <div class="menu-item"><span>Chaï Latte</span><span class="price">5.50€</span></div>
                 <div class="menu-item"><span>Golden Latte</span><span class="price">5.50€</span></div>
-                <div class="menu-item"><span>Pink Black Blue Latte</span><span class="price">5.50€</span></div>
+                <div class="menu-item"><span>Pink Black/Blue Latte</span><span class="price">5.50€</span></div>
                 <div class="menu-item"><span>Ube Latte</span><span class="price">5.50€</span></div>
             </div>
         </section>
@@ -134,11 +134,7 @@
                     </div>
                     <span class="price">7.50€</span>
                 </div>
-                <div class="menu-item full">
-                    <div class="item-info">
-                        <span class="item-name">Wrap Thon et Crudités</span>
-                    </div>
-                    <span class="price">5.90€</span>
+                
                 </div>
                 <div class="menu-item full">
                     <div class="item-info">
@@ -146,13 +142,7 @@
                         <p class="item-desc">Recettes garnies avec produits frais et salade</p>
                     </div>
                     <span class="price">8.50€</span>
-                </div>
-                <div class="menu-item full highlight-item">
-                    <div class="item-info">
-                        <span class="item-name">Plat du Jour : Carpaccio de Bœuf</span>
-                    </div>
-                    <span class="price">9.50€</span>
-                </div>
+
             </div>
         </section>
 
