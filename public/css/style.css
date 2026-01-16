@@ -1345,3 +1345,111 @@ ul {
 .menu-section:not(.formulas) .menu-item {
     border-bottom: 1px solid rgba(150, 121, 105, 0.2) !important;
 }
+/* --- STYLE DES PHOTOS DU CARROUSEL --- */
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    /* Ajout de la bordure marron (entourne) */
+    border: 5px solid var(--marron);
+    /* Assure que la bordure est comprise dans la taille de l'image */
+    box-sizing: border-box;
+    /* Conserve l'ombre existante pour le relief */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+/* Définition de l'animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px); /* Part de plus bas */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);    /* Arrive à sa position normale */
+    }
+}
+
+/* Application de l'animation aux titres Hero et Menu */
+.hero-text h1,
+.menu-header h1 {
+    animation: fadeInUp 1.5s ease-out forwards;
+
+    /* On garde l'écriture fine (400) que vous avez demandée */
+    font-weight: 400 !important;
+
+    /* Optionnel : un espacement des lettres pour plus de légèreté */
+    letter-spacing: 5px;
+}
+
+/* Animation pour le sous-titre (apparaît un peu après) */
+.hero-text p,
+.menu-header p {
+    animation: fadeInUp 1.5s ease-out 0.5s forwards; /* Délai de 0.5s */
+    opacity: 0; /* Caché au début pour l'animation */
+    font-weight: 400;
+}
+/* --- STYLE DU MENU DÉROULANT (DROPDOWN) --- */
+.lang-dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+/* Le bouton principal du dropdown */
+.lang-dropbtn {
+    background: transparent;
+    border: 1px solid var(--creme); /* #f1ece1 */
+    color: var(--creme);
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400 !important; /* Écriture fine conservée */
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.lang-dropbtn:hover {
+    border-color: var(--jaune); /* #f4d06f */
+    color: var(--jaune);
+}
+
+/* Le menu d'options (caché par défaut) */
+.lang-options {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 120%;
+    background-color: var(--marron); /* #967969 */
+    min-width: 120px;
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 5000;
+    overflow: hidden;
+}
+
+/* Classe pour afficher le menu via JS */
+.lang-options.show {
+    display: block;
+    animation: fadeInUp 0.3s ease-out; /* Réutilise votre animation de montée */
+}
+
+/* Liens à l'intérieur du menu */
+.lang-options a {
+    color: var(--creme);
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.85rem;
+    transition: 0.3s;
+    text-align: left;
+}
+
+.lang-options a:hover {
+    background-color: var(--jaune);
+    color: var(--marron);
+}

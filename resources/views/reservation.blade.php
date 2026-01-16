@@ -31,7 +31,7 @@
     </a>
 
     <button class="explorer-btn" id="menu-trigger">
-        <span class="btn-label">EXPLORER</span>
+        <span class="btn-label" data-en="EXPLORE">EXPLORER</span>
         <div class="icon-burger">
             <span></span>
             <span></span>
@@ -40,26 +40,46 @@
 
     <div class="nav-overlay" id="nav-overlay">
         <div class="menu-items">
-            <a href="{{ route('home') }}">ACCUEIL</a>
-            <a href="{{ route('menu') }}">CARTE</a>
-            <a href="{{ route('reservation') }}">RÉSERVATION</a>
-            <a href="{{ route('contact') }}">CONTACT</a>
+            <a href="{{ route('home') }}" data-en="HOME">ACCUEIL</a>
+            <a href="{{ route('menu') }}" data-en="MENU">CARTE</a>
+            <a href="{{ route('reservation') }}" data-en="BOOKING">RÉSERVATION</a>
+            <a href="{{ route('contact') }}" data-en="CONTACT">CONTACT</a>
+
+            <div class="lang-dropdown">
+                <button class="lang-dropbtn" onclick="toggleLangMenu('lang-menu-mobile')">
+                    <span class="current-lang-text">FR</span> <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="lang-options" id="lang-menu-mobile">
+                    <a href="#" onclick="selectLanguage('fr')">Français</a>
+                    <a href="#" onclick="selectLanguage('en')">English</a>
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="nav-links desktop-only">
-        <a href="{{ route('home') }}">ACCUEIL</a>
-        <a href="{{ route('menu') }}">CARTE</a>
-        <a href="{{ route('reservation') }}">RÉSERVATION</a>
-        <a href="{{ route('contact') }}">CONTACT</a>
+        <a href="{{ route('home') }}" data-en="HOME">ACCUEIL</a>
+        <a href="{{ route('menu') }}" data-en="MENU">CARTE</a>
+        <a href="{{ route('reservation') }}" data-en="BOOKING">RÉSERVATION</a>
+        <a href="{{ route('contact') }}" data-en="CONTACT">CONTACT</a>
+
+        <div class="lang-dropdown">
+            <button class="lang-dropbtn" onclick="toggleLangMenu('lang-menu-desktop')">
+                <span class="current-lang-text">FR</span> <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="lang-options" id="lang-menu-desktop">
+                <a href="#" onclick="selectLanguage('fr')">Français</a>
+                <a href="#" onclick="selectLanguage('en')">English</a>
+            </div>
+        </div>
     </div>
 </nav>
 
 <main class="reserva-page">
     <header class="reserva-hero">
         <div class="container">
-            <h1>RÉSERVATION</h1>
-            <p>RÉSERVEZ VOTRE TABLE EN QUELQUES CLICS</p>
+            <h1 data-en="BOOKING">RÉSERVATION</h1>
+            <p data-en="BOOK YOUR TABLE IN A FEW CLICKS">RÉSERVEZ VOTRE TABLE EN QUELQUES CLICS</p>
         </div>
     </header>
 
@@ -78,26 +98,26 @@
 <footer>
     <div class="container footer-grid">
         <div class="footer-col">
-            <h3>NOUS TROUVER</h3>
+            <h3 data-en="FIND US">NOUS TROUVER</h3>
             <p><i class="fas fa-map-marker-alt"></i> 12 Rue Professeur Rollet<br>69008 Lyon</p>
         </div>
         <div class="footer-col">
-            <h3>EXPLORER</h3>
+            <h3 data-en="EXPLORE">EXPLORER</h3>
             <ul>
-                <li><a href="{{ route('home') }}">ACCUEIL</a></li>
-                <li><a href="{{ route('menu') }}">LA CARTE</a></li>
-                <li><a href="{{ route('reservation') }}">RÉSERVATION</a></li>
+                <li><a href="{{ route('home') }}" data-en="HOME">ACCUEIL</a></li>
+                <li><a href="{{ route('menu') }}" data-en="MENU">LA CARTE</a></li>
+                <li><a href="{{ route('reservation') }}" data-en="BOOKING">RÉSERVATION</a></li>
             </ul>
         </div>
         <div class="footer-col">
-            <h3>SUIVEZ-NOUS</h3>
+            <h3 data-en="FOLLOW US">SUIVEZ-NOUS</h3>
             <div class="footer-socials">
                 <a href="https://www.instagram.com/cafecreme_lyon/" target="_blank"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
     </div>
     <div class="footer-bottom">
-        <p>© 2026 CAFÉ CRÈME | <a href="{{ route('terms') }}" class="small-terms">Nos Conditions</a></p>
+        <p>© 2026 CAFÉ CRÈME | <a href="{{ route('terms') }}" class="small-terms" data-en="Our Terms">Nos Conditions</a></p>
     </div>
 </footer>
 

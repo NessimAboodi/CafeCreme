@@ -17,7 +17,7 @@
     </a>
 
     <button class="explorer-btn" id="menu-trigger">
-        <span class="btn-label">EXPLORER</span>
+        <span class="btn-label" data-en="EXPLORE">EXPLORER</span>
         <div class="icon-burger">
             <span></span>
             <span></span>
@@ -26,18 +26,38 @@
 
     <div class="nav-overlay" id="nav-overlay">
         <div class="menu-items">
-            <a href="{{ route('home') }}">ACCUEIL</a>
-            <a href="{{ route('menu') }}">CARTE</a>
-            <a href="{{ route('reservation') }}">RÉSERVATION</a>
-            <a href="{{ route('contact') }}">CONTACT</a>
+            <a href="{{ route('home') }}" data-en="HOME">ACCUEIL</a>
+            <a href="{{ route('menu') }}" data-en="MENU">CARTE</a>
+            <a href="{{ route('reservation') }}" data-en="BOOKING">RÉSERVATION</a>
+            <a href="{{ route('contact') }}" data-en="CONTACT">CONTACT</a>
+
+            <div class="lang-dropdown">
+                <button class="lang-dropbtn" onclick="toggleLangMenu('lang-menu-mobile')">
+                    <span class="current-lang-text">FR</span> <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="lang-options" id="lang-menu-mobile">
+                    <a href="#" onclick="selectLanguage('fr')">Français</a>
+                    <a href="#" onclick="selectLanguage('en')">English</a>
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="nav-links desktop-only">
-        <a href="{{ route('home') }}">ACCUEIL</a>
-        <a href="{{ route('menu') }}">CARTE</a>
-        <a href="{{ route('reservation') }}">RÉSERVATION</a>
-        <a href="{{ route('contact') }}">CONTACT</a>
+        <a href="{{ route('home') }}" data-en="HOME">ACCUEIL</a>
+        <a href="{{ route('menu') }}" data-en="MENU">CARTE</a>
+        <a href="{{ route('reservation') }}" data-en="BOOKING">RÉSERVATION</a>
+        <a href="{{ route('contact') }}" data-en="CONTACT">CONTACT</a>
+
+        <div class="lang-dropdown">
+            <button class="lang-dropbtn" onclick="toggleLangMenu('lang-menu-desktop')">
+                <span class="current-lang-text">FR</span> <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="lang-options" id="lang-menu-desktop">
+                <a href="#" onclick="selectLanguage('fr')">Français</a>
+                <a href="#" onclick="selectLanguage('en')">English</a>
+            </div>
+        </div>
     </div>
 </nav>
 
@@ -45,17 +65,17 @@
     <header class="hero-fullscreen">
         <div class="hero-overlay">
             <div class="hero-text">
-                <h1>CAFÉ CRÈME</h1>
-                <p>A Mettre</p>
-                <a href="{{ route('menu') }}" class="btn-yellow">DÉCOUVRIR LA CARTE</a>
+                <h1> CAFÉ CRÈME</h1>
+                <p data-en="To be added">A Mettre</p>
+                <a href="{{ route('menu') }}" class="btn-yellow" data-en="DISCOVER THE MENU">DÉCOUVRIR LA CARTE</a>
             </div>
         </div>
     </header>
 
     <section class="intro-section reveal">
         <div class="container">
-            <h2>A mettre</h2>
-            <p>A mettre</p>
+            <h2 data-en="To be added">A mettre</h2>
+            <p data-en="To be added">A mettre</p>
         </div>
     </section>
 
@@ -65,15 +85,15 @@
                 <img src="{{ asset('images/1.jpg') }}" alt="Pâtisseries maison">
             </div>
             <div class="split-text">
-                <h2>À Propos</h2>
-                <p>Histoire</p>
+                <h2 data-en="About Us">À Propos</h2>
+                <p data-en="Our Story">Histoire</p>
             </div>
         </div>
     </section>
 
     <section class="carousel-section reveal">
         <div class="container">
-            <h2 class="carousel-title">les photos que vous avez prises chez nous</h2>
+            <h2 class="carousel-title" data-en="photos you took at our place">les photos que vous avez prises chez nous</h2>
             <div class="carousel-container">
                 <button class="carousel-control prev" id="prevBtn">❮</button>
                 <div class="carousel-window">
@@ -92,7 +112,7 @@
 
     <section class="reviews-section reveal">
         <div class="container">
-            <h2 class="reviews-title">CE QUE DISENT NOS CLIENTS</h2>
+            <h2 class="reviews-title" data-en="WHAT OUR CUSTOMERS SAY">CE QUE DISENT NOS CLIENTS</h2>
             <div class="elfsight-app-3f663381-0fac-4aa9-8669-025f85949666" data-elfsight-app-lazy></div>
         </div>
     </section>
@@ -112,9 +132,9 @@
     <section class="merged-cta-section reveal">
         <div class="container">
             <div class="cta-content">
-                <h2>CONTACTEZ-NOUS</h2>
-                <p>Une question ? Connectez-vous avec l'équipe du Café Crème.</p>
-                <a href="{{ route('contact') }}" class="btn-yellow-dark">CONTACTER</a>
+                <h2 data-en="CONTACT US">CONTACTEZ-NOUS</h2>
+                <p data-en="Any questions? Connect with the Café Crème team.">Une question ? Connectez-vous avec l'équipe du Café Crème.</p>
+                <a href="{{ route('contact') }}" class="btn-yellow-dark" data-en="CONTACT">CONTACTER</a>
             </div>
         </div>
     </section>
@@ -123,27 +143,27 @@
 <footer>
     <div class="container footer-grid">
         <div class="footer-col">
-            <h3>NOUS TROUVER</h3>
+            <h3 data-en="FIND US">NOUS TROUVER</h3>
             <p><i class="fas fa-map-marker-alt"></i> 12 Rue Professeur Rollet<br>69008 Lyon</p>
             <p><i class="fas fa-phone"></i> +33 09 86 15 66 57</p>
         </div>
         <div class="footer-col">
-            <h3>EXPLORER</h3>
+            <h3 data-en="EXPLORE">EXPLORER</h3>
             <ul>
-                <li><a href="{{ route('home') }}">ACCUEIL</a></li>
-                <li><a href="{{ route('menu') }}">LA CARTE</a></li>
-                <li><a href="{{ route('reservation') }}">RÉSERVATION</a></li>
+                <li><a href="{{ route('home') }}" data-en="HOME">ACCUEIL</a></li>
+                <li><a href="{{ route('menu') }}" data-en="MENU">LA CARTE</a></li>
+                <li><a href="{{ route('reservation') }}" data-en="BOOKING">RÉSERVATION</a></li>
             </ul>
         </div>
         <div class="footer-col">
-            <h3>SUIVEZ-NOUS</h3>
+            <h3 data-en="FOLLOW US">SUIVEZ-NOUS</h3>
             <div class="footer-socials">
                 <a href="https://www.instagram.com/cafecreme_lyon/" target="_blank"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
     </div>
     <div class="footer-bottom">
-        <p>© 2026 Café Crème - Lyon 8e | <a href="{{ route('terms') }}" class="small-terms">Nos Conditions</a></p>
+        <p>© 2026 Café Crème - Lyon 8e | <a href="{{ route('terms') }}" class="small-terms" data-en="Our Terms">Nos Conditions</a></p>
     </div>
 </footer>
 

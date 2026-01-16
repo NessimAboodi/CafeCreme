@@ -96,3 +96,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 });
+// --- GESTION DU MENU DÉROULANT DE LANGUE ---
+
+// 1. Fonction pour afficher/cacher le menu spécifique (Mobile ou Desktop)
+function toggleLangMenu(menuId) {
+    // Ferme l'autre menu s'il est ouvert pour éviter les superpositions
+    document.querySelectorAll('.lang-options').forEach(opt => {
+        if (opt.id !== menuId) opt.classList.remove('show');
+    });
+
+    // Bascule l'affichage du menu cliqué
+    document.getElementById(menuId).classList.toggle('show');
+}
+
+// 2. Fonction pour sélectionner la langue et traduire le site
+function selectLanguage(lang) {
+    const elements = document.querySelectorAll('[data-en]');
+    const labels = document.querySelectorAll('.current-lang-text');
+
+    if (lang === 'en') {
+        elements.forEach(el => {
+            // Sauvegarde le texte français s'il n'est pas déjà stocké
+            if (!el.getAttribute('data-fr')) {
+                el.setAttribute('data-fr', el.innerText);
+            }
+            // Remplace par la version anglaise
+            el.innerText = el.getAttribute('data-en');
+        });
+        // Met à jour l'affichage sur tous les boutons (Desktop et Mobile)
+        labels.forEach(lb => lb.innerText = 'EN');
+    } else {
+        elements.forEach(el => {
+            // Restaure le texte français original
+            const frText = el.getAttribute('data-fr');
+            if (frText) el.innerText = frText;
+        });
+        // Remet à jour l'affichage sur FR
+        labels.forEach(lb => lb.innerText = 'FR');
+    }
+
+    // Ferme tous les menus d'options après la sélection
+    document.querySelectorAll('.lang-options').forEach(opt => opt.classList.remove('show'));
+}
+
+// 3. Fermer le menu si on clique n'importe où ailleurs sur la page
+window.addEventListener('click', function(e) {
+    if (!e.target.closest('.lang-dropdown')) {
+        document.querySelectorAll('.lang-options').forEach(opt => opt.classList.remove('show'));
+    }
+});

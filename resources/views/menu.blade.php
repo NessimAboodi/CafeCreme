@@ -25,7 +25,7 @@
     </a>
 
     <button class="explorer-btn" id="menu-trigger">
-        <span class="btn-label">EXPLORER</span>
+        <span class="btn-label" data-en="EXPLORE">EXPLORER</span>
         <div class="icon-burger">
             <span></span>
             <span></span>
@@ -34,92 +34,112 @@
 
     <div class="nav-overlay" id="nav-overlay">
         <div class="menu-items">
-            <a href="{{ route('home') }}">ACCUEIL</a>
-            <a href="{{ route('menu') }}">CARTE</a>
-            <a href="{{ route('reservation') }}">RÉSERVATION</a>
-            <a href="{{ route('contact') }}">CONTACT</a>
+            <a href="{{ route('home') }}" data-en="HOME">ACCUEIL</a>
+            <a href="{{ route('menu') }}" data-en="MENU">CARTE</a>
+            <a href="{{ route('reservation') }}" data-en="BOOKING">RÉSERVATION</a>
+            <a href="{{ route('contact') }}" data-en="CONTACT">CONTACT</a>
+
+            <div class="lang-dropdown">
+                <button class="lang-dropbtn" onclick="toggleLangMenu('lang-menu-mobile')">
+                    <span class="current-lang-text">FR</span> <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="lang-options" id="lang-menu-mobile">
+                    <a href="#" onclick="selectLanguage('fr')">Français</a>
+                    <a href="#" onclick="selectLanguage('en')">English</a>
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="nav-links desktop-only">
-        <a href="{{ route('home') }}">ACCUEIL</a>
-        <a href="{{ route('menu') }}">CARTE</a>
-        <a href="{{ route('reservation') }}">RÉSERVATION</a>
-        <a href="{{ route('contact') }}">CONTACT</a>
+        <a href="{{ route('home') }}" data-en="HOME">ACCUEIL</a>
+        <a href="{{ route('menu') }}" data-en="MENU">CARTE</a>
+        <a href="{{ route('reservation') }}" data-en="BOOKING">RÉSERVATION</a>
+        <a href="{{ route('contact') }}" data-en="CONTACT">CONTACT</a>
+
+        <div class="lang-dropdown">
+            <button class="lang-dropbtn" onclick="toggleLangMenu('lang-menu-desktop')">
+                <span class="current-lang-text">FR</span> <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="lang-options" id="lang-menu-desktop">
+                <a href="#" onclick="selectLanguage('fr')">Français</a>
+                <a href="#" onclick="selectLanguage('en')">English</a>
+            </div>
+        </div>
     </div>
 </nav>
 
 <main class="menu-page">
     <header class="menu-header">
-        <h1>La Carte du Café Crème</h1>
+        <h1 data-en="The Café Crème Menu">La Carte du Café Crème</h1>
         <p>CHEZ NOUS ÇA PASSE CRÈME !</p>
     </header>
 
     <div class="container">
 
         <section class="menu-section formulas">
-            <h2 class="category-title">🌟 Nos Formules</h2>
+            <h2 class="category-title" data-en="🌟 Our Formulas">🌟 Nos Formules</h2>
             <div class="formula-grid">
                 <div class="formula-box">
-                    <h3>BRUNCH — 25€</h3>
-                    <p>Citronnade à volonté + Boisson chaude + Focaccia salée avec salade + Dessert (Pancake ou Bowl)</p>
+                    <h3 data-en="BRUNCH — 25€">BRUNCH — 25€</h3>
+                    <p data-en="Unlimited lemonade + Hot drink + Savory Focaccia with salad + Dessert (Pancake or Bowl)">Citronnade à volonté + Boisson chaude + Focaccia salée avec salade + Dessert (Pancake ou Bowl)</p>
                 </div>
                 <div class="formula-box">
-                    <h3>FORMULE GOÛTER — 6.50€</h3>
-                    <p>Dès 15h. Pâtisserie du jour + Boisson chaude au choix (+2€ pour Superfood)</p>
+                    <h3 data-en="SNACK FORMULA — 6.50€">FORMULE GOÛTER — 6.50€</h3>
+                    <p data-en="From 3pm. Pastry of the day + Hot drink of choice (+2€ for Superfood)">Dès 15h. Pâtisserie du jour + Boisson chaude au choix (+2€ pour Superfood)</p>
                 </div>
                 <div class="formula-box">
-                    <h3>HAPPY HOUR — 7.50€</h3>
-                    <p>Tapas du jour + Bière 50cl au choix (Blonde ou Cerise)</p>
+                    <h3 data-en="HAPPY HOUR — 7.50€">HAPPY HOUR — 7.50€</h3>
+                    <p data-en="Tapas of the day + 50cl Beer of choice (Blonde or Cherry)">Tapas du jour + Bière 50cl au choix (Blonde ou Cerise)</p>
                 </div>
             </div>
         </section>
 
         <section class="menu-section">
-            <h2 class="category-title">Côté Salé</h2>
+            <h2 class="category-title" data-en="Savory Side">Côté Salé</h2>
             <div class="menu-grid">
                 <div class="menu-item full">
                     <div class="item-info">
-                        <span class="item-name">Bagel Saumon</span>
-                        <p class="item-desc">Cream cheese, aneth, citron, salade, concombre</p>
+                        <span class="item-name" data-en="Salmon Bagel">Bagel Saumon</span>
+                        <p class="item-desc" data-en="Cream cheese, dill, lemon, salad, cucumber">Cream cheese, aneth, citron, salade, concombre</p>
                     </div>
                     <span class="price">7.50€</span>
                 </div>
                 <div class="menu-item full">
                     <div class="item-info">
-                        <span class="item-name">Bagel Burrata</span>
-                        <p class="item-desc">Burrata truffée, pesto rosso, jambon de Parme</p>
+                        <span class="item-name" data-en="Burrata Bagel">Bagel Burrata</span>
+                        <p class="item-desc" data-en="Truffled burrata, pesto rosso, Parma ham">Burrata truffée, pesto rosso, jambon de Parme</p>
                     </div>
                     <span class="price">7.50€</span>
                 </div>
                 <div class="menu-item full">
                     <div class="item-info">
-                        <span class="item-name">Bagel Poulet (Halal)</span>
-                        <p class="item-desc">Sauce creamy curry maison, guacamole, salade</p>
-                    </div>
-                    <span class="price">7.50€</span>
-                </div>
-
-                <div class="menu-item full">
-                    <div class="item-info">
-                        <span class="item-name">Panini</span>
-                        <p class="item-desc">Pesto vert, mozzarella, jambon dinde halal</p>
+                        <span class="item-name" data-en="Chicken Bagel (Halal)">Bagel Poulet (Halal)</span>
+                        <p class="item-desc" data-en="Homemade creamy curry sauce, guacamole, salad">Sauce creamy curry maison, guacamole, salade</p>
                     </div>
                     <span class="price">7.50€</span>
                 </div>
 
                 <div class="menu-item full">
                     <div class="item-info">
-                        <span class="item-name">Croq</span>
-                        <p class="item-desc">Huile de truffe, mozzarella, jambon dinde halal</p>
+                        <span class="item-name" data-en="Panini">Panini</span>
+                        <p class="item-desc" data-en="Green pesto, mozzarella, halal turkey ham">Pesto vert, mozzarella, jambon dinde halal</p>
                     </div>
                     <span class="price">7.50€</span>
                 </div>
 
                 <div class="menu-item full">
                     <div class="item-info">
-                        <span class="item-name">Focaccia (Saumon, Végé ou Jambon Cru)</span>
-                        <p class="item-desc">Recettes garnies avec produits frais et salade</p>
+                        <span class="item-name" data-en="Croq">Croq</span>
+                        <p class="item-desc" data-en="Truffle oil, mozzarella, halal turkey ham">Huile de truffe, mozzarella, jambon dinde halal</p>
+                    </div>
+                    <span class="price">7.50€</span>
+                </div>
+
+                <div class="menu-item full">
+                    <div class="item-info">
+                        <span class="item-name" data-en="Focaccia (Salmon, Veggie or Cured Ham)">Focaccia (Saumon, Végé ou Jambon Cru)</span>
+                        <p class="item-desc" data-en="Recipes garnished with fresh products and salad">Recettes garnies avec produits frais et salade</p>
                     </div>
                     <span class="price">8.50€</span>
                 </div>
@@ -129,29 +149,29 @@
         </section>
 
         <section class="menu-section">
-            <h2 class="category-title"> Salades & Bowls</h2>
+            <h2 class="category-title" data-en="Salads & Bowls"> Salades & Bowls</h2>
             <div class="menu-grid">
                 <div class="menu-item">
                     <div class="item-info">
-                        <span class="item-name">Salade Grecque</span>
-                        <p class="item-desc">Concombre, tomate, olive noire, feta</p>
+                        <span class="item-name" data-en="Greek Salad">Salade Grecque</span>
+                        <p class="item-desc" data-en="Cucumber, tomato, black olive, feta">Concombre, tomate, olive noire, feta</p>
                     </div>
                     <span class="price">7.50€</span>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
-                        <span class="item-name">Salade Caesar</span>
-                        <p class="item-desc">Poulet rôti, tomate, croûtons, emmental</p>
+                        <span class="item-name" data-en="Caesar Salad">Salade Caesar</span>
+                        <p class="item-desc" data-en="Roasted chicken, tomato, croutons, emmental">Poulet rôti, tomate, croûtons, emmental</p>
                     </div>
                     <span class="price">7.50€</span>
                 </div>
-                <div class="menu-item"><span>Poke Bowl (à composer)</span><span class="price">7.50€</span></div>
+                <div class="menu-item"><span data-en="Poke Bowl (to compose)">Poke Bowl (à composer)</span><span class="price">7.50€</span></div>
             </div>
         </section>
 
         <section class="menu-section">
-            <h2 class="category-title"> Superfood Bar</h2>
-            <p class="category-subtitle">Lait végétal disponible : +0.50€</p>
+            <h2 class="category-title" data-en="Superfood Bar"> Superfood Bar</h2>
+            <p class="category-subtitle" data-en="Plant-based milk available: +0.50€">Lait végétal disponible : +0.50€</p>
             <div class="menu-grid">
                 <div class="menu-item"><span>Matcha Latte</span><span class="price">5.50€</span></div>
                 <div class="menu-item"><span>Mango Matcha Latte</span><span class="price">6.50€</span></div>
@@ -164,54 +184,54 @@
         </section>
 
         <section class="menu-section">
-            <h2 class="category-title"> Coffee Shop</h2>
+            <h2 class="category-title" data-en="Coffee Shop"> Coffee Shop</h2>
             <div class="menu-grid">
-                <div class="menu-item"><span>Espresso</span><span class="price">1.90€</span></div>
-                <div class="menu-item"><span>Lungo</span><span class="price">2.20€</span></div>
-                <div class="menu-item"><span>Doppio</span><span class="price">2.80€</span></div>
-                <div class="menu-item"><span>Cappuccino</span><span class="price">3.50€</span></div>
-                <div class="menu-item"><span>Latte</span><span class="price">4.50€</span></div>
-                <div class="menu-item"><span>Thé</span><span class="price">3.80€</span></div>
-                <div class="menu-item"><span>Chocolat Chaud</span><span class="price">4.20€</span></div>
-                <div class="menu-item"><span>Chocolat Viennois</span><span class="price">4.50€</span></div>
+                <div class="menu-item"><span data-en="Espresso">Espresso</span><span class="price">1.90€</span></div>
+                <div class="menu-item"><span data-en="Lungo">Lungo</span><span class="price">2.20€</span></div>
+                <div class="menu-item"><span data-en="Doppio">Doppio</span><span class="price">2.80€</span></div>
+                <div class="menu-item"><span data-en="Cappuccino">Cappuccino</span><span class="price">3.50€</span></div>
+                <div class="menu-item"><span data-en="Latte">Latte</span><span class="price">4.50€</span></div>
+                <div class="menu-item"><span data-en="Tea">Thé</span><span class="price">3.80€</span></div>
+                <div class="menu-item"><span data-en="Hot Chocolate">Chocolat Chaud</span><span class="price">4.20€</span></div>
+                <div class="menu-item"><span data-en="Viennese Chocolate">Chocolat Viennois</span><span class="price">4.50€</span></div>
             </div>
         </section>
 
         <section class="menu-section">
-            <h2 class="category-title"> Boissons Fraîches & Bar</h2>
+            <h2 class="category-title" data-en="Cold Drinks & Bar"> Boissons Fraîches & Bar</h2>
             <div class="menu-grid">
-                <div class="menu-item"><span>Sirop</span><span class="price">2.50€</span></div>
-                <div class="menu-item"><span>Jus de fruit</span><span class="price">3.50€</span></div>
-                <div class="menu-item"><span>Citronnade Maison</span><span class="price">3.30€</span></div>
+                <div class="menu-item"><span data-en="Syrup">Sirop</span><span class="price">2.50€</span></div>
+                <div class="menu-item"><span data-en="Fruit Juice">Jus de fruit</span><span class="price">3.50€</span></div>
+                <div class="menu-item"><span data-en="Homemade Lemonade">Citronnade Maison</span><span class="price">3.30€</span></div>
                 <div class="menu-item"><span>Coca Cola Zero / Schweppes</span><span class="price">3.00€</span></div>
-                <div class="menu-item"><span>Eau Pétillante</span><span class="price">1.50€</span></div>
+                <div class="menu-item"><span data-en="Sparkling Water">Eau Pétillante</span><span class="price">1.50€</span></div>
                 <div class="menu-item"><span>RedBull</span><span class="price">2.50€</span></div>
-                <div class="menu-item"><span>Blonde Pélican (25cl / 50cl)</span><span class="price">4.50€ / 8.00€</span></div>
-                <div class="menu-item"><span>Rouge Mort Subite (25cl / 50cl)</span><span class="price">5.00€ / 8.50€</span></div>
-                <div class="menu-item"><span>Cocktail Création / Spritz</span><span class="price">6.00€</span></div>
+                <div class="menu-item"><span data-en="Blonde Pelican (25cl / 50cl)">Blonde Pélican (25cl / 50cl)</span><span class="price">4.50€ / 8.00€</span></div>
+                <div class="menu-item"><span data-en="Red Mort Subite (25cl / 50cl)">Rouge Mort Subite (25cl / 50cl)</span><span class="price">5.00€ / 8.50€</span></div>
+                <div class="menu-item"><span data-en="Creation Cocktail / Spritz">Cocktail Création / Spritz</span><span class="price">6.00€</span></div>
             </div>
         </section>
 
         <section class="menu-section">
-            <h2 class="category-title"> Les Douceurs</h2>
+            <h2 class="category-title" data-en="Sweets"> Les Douceurs</h2>
             <div class="menu-grid">
                 <div class="menu-item">
                     <div class="item-info">
-                        <span class="item-name">Pancake (saveur au choix)</span>
-                        <p class="item-desc">Chocolat, Spéculoos, Caramel, Pistache</p>
+                        <span class="item-name" data-en="Pancake (flavor of choice)">Pancake (saveur au choix)</span>
+                        <p class="item-desc" data-en="Chocolate, Speculoos, Caramel, Pistachio">Chocolat, Spéculoos, Caramel, Pistache</p>
                     </div>
                     <span class="price">6.50€</span>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
-                        <span class="item-name">Bowl Maison (Overnight avoine)</span>
-                        <p class="item-desc">Lait de coco, fromage, fruits rouges</p>
+                        <span class="item-name" data-en="House Bowl (Overnight oat)">Bowl Maison (Overnight avoine)</span>
+                        <p class="item-desc" data-en="Coconut milk, cheese, red fruits">Lait de coco, fromage, fruits rouges</p>
                     </div>
                     <span class="price">4.50€</span>
                 </div>
                 <div class="menu-item"><span>Matcha Pudding</span><span class="price">4.50€</span></div>
-                <div class="menu-item"><span>Cookie Maison</span><span class="price">8.50€</span></div>
-                <div class="menu-item"><span>Cake de la semaine</span><span class="price">8.50€</span></div>
+                <div class="menu-item"><span data-en="Homemade Cookie">Cookie Maison</span><span class="price">8.50€</span></div>
+                <div class="menu-item"><span data-en="Cake of the week">Cake de la semaine</span><span class="price">8.50€</span></div>
             </div>
         </section>
     </div>
@@ -224,22 +244,22 @@
 <footer>
     <div class="container footer-grid">
         <div class="footer-col">
-            <h3>NOUS TROUVER</h3>
+            <h3 data-en="FIND US">NOUS TROUVER</h3>
             <p><i class="fas fa-map-marker-alt"></i> 12 Rue Professeur Rollet<br>69008 Lyon</p>
             <p><i class="fas fa-phone"></i> +33 09 86 15 66 57</p>
         </div>
 
         <div class="footer-col">
-            <h3>EXPLORER</h3>
+            <h3 data-en="EXPLORE">EXPLORER</h3>
             <ul>
-                <li><a href="{{ route('home') }}">ACCUEIL</a></li>
-                <li><a href="{{ route('menu') }}">LA CARTE</a></li>
-                <li><a href="{{ route('reservation') }}">RÉSERVATION</a></li>
+                <li><a href="{{ route('home') }}" data-en="HOME">ACCUEIL</a></li>
+                <li><a href="{{ route('menu') }}" data-en="MENU">LA CARTE</a></li>
+                <li><a href="{{ route('reservation') }}" data-en="BOOKING">RÉSERVATION</a></li>
             </ul>
         </div>
 
         <div class="footer-col">
-            <h3>SUIVEZ-NOUS</h3>
+            <h3 data-en="FOLLOW US">SUIVEZ-NOUS</h3>
             <div class="footer-socials">
                 <a href="https://www.instagram.com/cafecreme_lyon/" target="_blank"><i class="fab fa-instagram"></i></a>
             </div>
@@ -247,6 +267,6 @@
     </div>
 
     <div class="footer-bottom">
-        <p>© 2026 Café Crème - Lyon 8e | <a href="{{ route('terms') }}" class="small-terms">Nos Conditions</a></p>
+        <p>© 2026 Café Crème - Lyon 8e | <a href="{{ route('terms') }}" class="small-terms" data-en="Our Terms">Nos Conditions</a></p>
     </div>
 </footer>
