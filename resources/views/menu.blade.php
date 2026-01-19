@@ -78,7 +78,7 @@
     <div class="container">
 
         <section class="menu-section formulas">
-            <h2 class="category-title" data-en="🌟 Our Formulas">🌟 Nos Formules</h2>
+            <h2 class="category-title" data-en=" Our Formulas"> Nos Formules</h2>
             <div class="formula-grid">
                 <div class="formula-box">
                     <h3 data-en="BRUNCH — 25€">BRUNCH — 25€</h3>
