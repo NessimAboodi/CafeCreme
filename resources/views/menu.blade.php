@@ -15,6 +15,10 @@
         .item-desc {
             font-weight: 400;
         }
+        /* Style pour s'assurer que les sections s'espacent bien */
+        .menu-section {
+            margin-bottom: 50px;
+        }
     </style>
 </head>
 <body>
@@ -76,170 +80,48 @@
     </header>
 
     <div class="container">
+        {{-- Boucle dynamique sur les catégories --}}
+        @foreach($items as $category => $categoryItems)
+            <section class="menu-section">
+                <h2 class="category-title" data-en="{{ $category }}">{{ $category }}</h2>
 
-        <section class="menu-section formulas">
-            <h2 class="category-title" data-en=" Our Formulas"> Nos Formules</h2>
-            <div class="formula-grid">
-                <div class="formula-box">
-                    <h3 data-en="BRUNCH — 25€">BRUNCH — 25€</h3>
-                    <p data-en="Unlimited lemonade + Hot drink + Savory Focaccia with salad + Dessert (Pancake or Bowl)">Citronnade à volonté + Boisson chaude + Focaccia salée avec salade + Dessert (Pancake ou Bowl)</p>
-                </div>
-                <div class="formula-box">
-                    <h3 data-en="SNACK FORMULA — 6.50€">FORMULE GOÛTER — 6.50€</h3>
-                    <p data-en="From 3pm. Pastry of the day + Hot drink of choice (+2€ for Superfood)">Dès 15h. Pâtisserie du jour + Boisson chaude au choix (+2€ pour Superfood)</p>
-                </div>
-                <div class="formula-box">
-                    <h3 data-en="HAPPY HOUR — 7.50€">HAPPY HOUR — 7.50€</h3>
-                    <p data-en="Tapas of the day + 50cl Beer of choice (Blonde or Cherry)">Tapas du jour + Bière 50cl au choix (Blonde ou Cerise)</p>
-                </div>
-            </div>
-        </section>
+                {{-- On utilise la classe formula-grid si c'est la catégorie des formules, sinon menu-grid --}}
+                <div class="{{ $category == 'Nos Formules' ? 'formula-grid' : 'menu-grid' }}">
 
-        <section class="menu-section">
-            <h2 class="category-title" data-en="Savory Side">Côté Salé</h2>
-            <div class="menu-grid">
-                <div class="menu-item full">
-                    <div class="item-info">
-                        <span class="item-name" data-en="Salmon Bagel">Bagel Saumon</span>
-                        <p class="item-desc" data-en="Cream cheese, dill, lemon, salad, cucumber">Cream cheese, aneth, citron, salade, concombre</p>
-                    </div>
-                    <span class="price">7.50€</span>
-                </div>
-                <div class="menu-item full">
-                    <div class="item-info">
-                        <span class="item-name" data-en="Burrata Bagel">Bagel Burrata</span>
-                        <p class="item-desc" data-en="Truffled burrata, pesto rosso, Parma ham">Burrata truffée, pesto rosso, jambon de Parme</p>
-                    </div>
-                    <span class="price">7.50€</span>
-                </div>
-                <div class="menu-item full">
-                    <div class="item-info">
-                        <span class="item-name" data-en="Chicken Bagel (Halal)">Bagel Poulet (Halal)</span>
-                        <p class="item-desc" data-en="Homemade creamy curry sauce, guacamole, salad">Sauce creamy curry maison, guacamole, salade</p>
-                    </div>
-                    <span class="price">7.50€</span>
-                </div>
+                    @foreach($categoryItems as $item)
+                        @if($category == 'Nos Formules')
+                            {{-- Affichage spécifique pour les Formules --}}
+                            <div class="formula-box">
+                                <h3 data-en="{{ $item->name_en ?? $item->name }} — {{ $item->price }}">
+                                    {{ $item->name }} — {{ $item->price }}
+                                </h3>
+                                <p data-en="{{ $item->description_en ?? $item->description }}">
+                                    {{ $item->description }}
+                                </p>
+                            </div>
+                        @else
+                            {{-- Affichage standard pour les autres plats --}}
+                            <div class="menu-item full">
+                                <div class="item-info">
+                                    <span class="item-name" data-en="{{ $item->name_en ?? $item->name }}">
+                                        {{ $item->name }}
+                                    </span>
+                                    @if($item->description)
+                                        <p class="item-desc" data-en="{{ $item->description_en ?? $item->description }}">
+                                            {{ $item->description }}
+                                        </p>
+                                    @endif
+                                </div>
+                                <span class="price">{{ $item->price }}</span>
+                            </div>
+                        @endif
+                    @endforeach
 
-                <div class="menu-item full">
-                    <div class="item-info">
-                        <span class="item-name" data-en="Panini">Panini</span>
-                        <p class="item-desc" data-en="Green pesto, mozzarella, halal turkey ham">Pesto vert, mozzarella, jambon dinde halal</p>
-                    </div>
-                    <span class="price">7.50€</span>
                 </div>
-
-                <div class="menu-item full">
-                    <div class="item-info">
-                        <span class="item-name" data-en="Croq">Croq</span>
-                        <p class="item-desc" data-en="Truffle oil, mozzarella, halal turkey ham">Huile de truffe, mozzarella, jambon dinde halal</p>
-                    </div>
-                    <span class="price">7.50€</span>
-                </div>
-
-                <div class="menu-item full">
-                    <div class="item-info">
-                        <span class="item-name" data-en="Focaccia (Salmon, Veggie or Cured Ham)">Focaccia (Saumon, Végé ou Jambon Cru)</span>
-                        <p class="item-desc" data-en="Recipes garnished with fresh products and salad">Recettes garnies avec produits frais et salade</p>
-                    </div>
-                    <span class="price">8.50€</span>
-                </div>
-
-
-            </div>
-        </section>
-
-        <section class="menu-section">
-            <h2 class="category-title" data-en="Salads & Bowls"> Salades & Bowls</h2>
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <div class="item-info">
-                        <span class="item-name" data-en="Greek Salad">Salade Grecque</span>
-                        <p class="item-desc" data-en="Cucumber, tomato, black olive, feta">Concombre, tomate, olive noire, feta</p>
-                    </div>
-                    <span class="price">7.50€</span>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <span class="item-name" data-en="Caesar Salad">Salade Caesar</span>
-                        <p class="item-desc" data-en="Roasted chicken, tomato, croutons, emmental">Poulet rôti, tomate, croûtons, emmental</p>
-                    </div>
-                    <span class="price">7.50€</span>
-                </div>
-                <div class="menu-item"><span data-en="Poke Bowl (to compose)">Poke Bowl (à composer)</span><span class="price">7.50€</span></div>
-            </div>
-        </section>
-
-        <section class="menu-section">
-            <h2 class="category-title" data-en="Superfood Bar"> Superfood Bar</h2>
-            <p class="category-subtitle" data-en="Plant-based milk available: +0.50€">Lait végétal disponible : +0.50€</p>
-            <div class="menu-grid">
-                <div class="menu-item"><span>Matcha Latte</span><span class="price">5.50€</span></div>
-                <div class="menu-item"><span>Mango Matcha Latte</span><span class="price">6.50€</span></div>
-                <div class="menu-item"><span>Pink Matcha Latte</span><span class="price">6.50€</span></div>
-                <div class="menu-item"><span>Chaï Latte</span><span class="price">5.50€</span></div>
-                <div class="menu-item"><span>Golden Latte</span><span class="price">5.50€</span></div>
-                <div class="menu-item"><span>Pink Black/Blue Latte</span><span class="price">5.50€</span></div>
-                <div class="menu-item"><span>Ube Latte</span><span class="price">5.50€</span></div>
-            </div>
-        </section>
-
-        <section class="menu-section">
-            <h2 class="category-title" data-en="Coffee Shop"> Coffee Shop</h2>
-            <div class="menu-grid">
-                <div class="menu-item"><span data-en="Espresso">Espresso</span><span class="price">1.90€</span></div>
-                <div class="menu-item"><span data-en="Lungo">Lungo</span><span class="price">2.20€</span></div>
-                <div class="menu-item"><span data-en="Doppio">Doppio</span><span class="price">2.80€</span></div>
-                <div class="menu-item"><span data-en="Cappuccino">Cappuccino</span><span class="price">3.50€</span></div>
-                <div class="menu-item"><span data-en="Latte">Latte</span><span class="price">4.50€</span></div>
-                <div class="menu-item"><span data-en="Tea">Thé</span><span class="price">3.80€</span></div>
-                <div class="menu-item"><span data-en="Hot Chocolate">Chocolat Chaud</span><span class="price">4.20€</span></div>
-                <div class="menu-item"><span data-en="Viennese Chocolate">Chocolat Viennois</span><span class="price">4.50€</span></div>
-            </div>
-        </section>
-
-        <section class="menu-section">
-            <h2 class="category-title" data-en="Cold Drinks & Bar"> Boissons Fraîches & Bar</h2>
-            <div class="menu-grid">
-                <div class="menu-item"><span data-en="Syrup">Sirop</span><span class="price">2.50€</span></div>
-                <div class="menu-item"><span data-en="Fruit Juice">Jus de fruit</span><span class="price">3.50€</span></div>
-                <div class="menu-item"><span data-en="Homemade Lemonade">Citronnade Maison</span><span class="price">3.30€</span></div>
-                <div class="menu-item"><span>Coca Cola Zero / Schweppes</span><span class="price">3.00€</span></div>
-                <div class="menu-item"><span data-en="Sparkling Water">Eau Pétillante</span><span class="price">1.50€</span></div>
-                <div class="menu-item"><span>RedBull</span><span class="price">2.50€</span></div>
-                <div class="menu-item"><span data-en="Blonde Pelican (25cl / 50cl)">Blonde Pélican (25cl / 50cl)</span><span class="price">4.50€ / 8.00€</span></div>
-                <div class="menu-item"><span data-en="Red Mort Subite (25cl / 50cl)">Rouge Mort Subite (25cl / 50cl)</span><span class="price">5.00€ / 8.50€</span></div>
-                <div class="menu-item"><span data-en="Creation Cocktail / Spritz">Cocktail Création / Spritz</span><span class="price">6.00€</span></div>
-            </div>
-        </section>
-
-        <section class="menu-section">
-            <h2 class="category-title" data-en="Sweets"> Les Douceurs</h2>
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <div class="item-info">
-                        <span class="item-name" data-en="Pancake (flavor of choice)">Pancake (saveur au choix)</span>
-                        <p class="item-desc" data-en="Chocolate, Speculoos, Caramel, Pistachio">Chocolat, Spéculoos, Caramel, Pistache</p>
-                    </div>
-                    <span class="price">6.50€</span>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <span class="item-name" data-en="House Bowl (Overnight oat)">Bowl Maison (Overnight avoine)</span>
-                        <p class="item-desc" data-en="Coconut milk, cheese, red fruits">Lait de coco, fromage, fruits rouges</p>
-                    </div>
-                    <span class="price">4.50€</span>
-                </div>
-                <div class="menu-item"><span>Matcha Pudding</span><span class="price">4.50€</span></div>
-                <div class="menu-item"><span data-en="Homemade Cookie">Cookie Maison</span><span class="price">8.50€</span></div>
-                <div class="menu-item"><span data-en="Cake of the week">Cake de la semaine</span><span class="price">8.50€</span></div>
-            </div>
-        </section>
+            </section>
+        @endforeach
     </div>
 </main>
-
-<script src="{{ asset('js/main.js') }}"></script>
-</body>
-</html>
 
 <footer>
     <div class="container footer-grid">
@@ -270,3 +152,7 @@
         <p>© 2026 Café Crème - Lyon 8e | <a href="{{ route('terms') }}" class="small-terms" data-en="Our Terms">Nos Conditions</a></p>
     </div>
 </footer>
+
+<script src="{{ asset('js/main.js') }}"></script>
+</body>
+</html>

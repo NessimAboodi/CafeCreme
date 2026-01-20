@@ -1,0 +1,141 @@
+:root {
+    --primary-color: #967969; /* Marron Café */
+    --secondary-color: #f1ece1; /* Crème */
+    --success-color: #27ae60;
+    --danger-color: #e74c3c;
+    --text-color: #333;
+    --bg-white: #ffffff;
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+body {
+    background: var(--secondary-color);
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-color);
+    margin: 0;
+    padding: 40px 20px;
+}
+
+.admin-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+h1 {
+    color: var(--primary-color);
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.alert-success {
+    background: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border: 1px solid #c3e6cb;
+    font-weight: 600;
+}
+
+.card-add {
+    background: var(--bg-white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    margin-bottom: 50px;
+    border-top: 5px solid var(--success-color);
+}
+
+.card-add h3 {
+    margin-top: 0;
+    color: var(--success-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.category-section {
+    margin-bottom: 40px;
+}
+
+.category-title {
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.item-card {
+    background: var(--bg-white);
+    margin-bottom: 15px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 150px 50px;
+    gap: 20px;
+    align-items: start;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #777;
+    text-transform: uppercase;
+}
+
+.btn {
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-add { background: var(--success-color); color: white; padding: 15px 25px; margin-top: 20px; }
+.btn-save {
+    background: var(--primary-color);
+    color: white;
+    padding: 18px 35px;
+    border-radius: 50px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.btn-del { color: var(--danger-color); background: #feeaea; width: 40px; height: 40px; border-radius: 50%; }
+
+@media (max-width: 900px) {
+    .item-card { grid-template-columns: 1fr; }
+    .btn-save { width: calc(100% - 40px); right: 20px; }
+}
