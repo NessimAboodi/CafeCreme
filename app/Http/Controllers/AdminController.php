@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\MenuItem;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactMessage;
 
 class AdminController extends Controller
 {
@@ -113,5 +115,27 @@ class AdminController extends Controller
         MenuItem::findOrFail($id)->delete();
 
         return back()->with('success', 'Le plat a été retiré de la carte.');
+    }
+
+    // --- PARTIE CONTACT ---
+
+    /**
+     * Gère l'envoi du formulaire de contact par email.
+     */
+    public function sendContact(Request $request)
+    {
+        // Validation des champs présents dans votre formulaire HTML
+        $data = $request->validate([
+            'lastname'  => 'required|string',
+            'firstname' => 'required|string',
+            'email'     => 'required|email',
+            'message'   => 'required|string',
+        ]);
+
+        // Envoi de l'email à votre adresse cafecreme69008@gmail.com
+        Mail::to('cafecreme69008@gmail.com')->send(new ContactMessage($data));
+
+        // Retour sur la page avec un message de succès
+        return back()->with('success', 'Merci ! Votre message a bien été envoyé.');
     }
 }

@@ -85,7 +85,13 @@
     </section>
 
     <section class="contact-form-section">
-        <form action="#" method="POST" class="lobut-form">
+        @if(session('success'))
+            <div style="background: #d4edda; color: #155724; padding: 15px; margin-bottom: 20px; border-radius: 5px; text-align: center; font-weight: bold; border: 1px solid #c3e6cb;">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        <form action="{{ route('contact.send') }}" method="POST" class="lobut-form">
             @csrf
             <div class="form-row">
                 <div class="form-group">
@@ -120,7 +126,6 @@
 
 <script src="{{ asset('js/main.js') }}"></script>
 </body>
-</html>
 
 <footer>
     <div class="container footer-grid">
@@ -151,3 +156,4 @@
         <p>© 2026 Café Crème - Lyon 8e | <a href="{{ route('terms') }}" class="small-terms" data-en="Our Terms">Nos Conditions</a></p>
     </div>
 </footer>
+</html>

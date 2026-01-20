@@ -57,3 +57,4 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::post('/logout', [AdminController::class, 'logout'])->name('admin.logout');
 });
 
+Route::post('/contact', [AdminController::class, 'sendContact'])->name('contact.send');
