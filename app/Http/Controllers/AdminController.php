@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\MenuItem;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMessage;
+use App\Mail\ReservationMessage;
 
 class AdminController extends Controller
 {
@@ -137,5 +138,29 @@ class AdminController extends Controller
 
         // Retour sur la page avec un message de succès
         return back()->with('success', 'Merci ! Votre message a bien été envoyé.');
+    }
+
+    // --- PARTIE RÉSERVATION ---
+
+    /**
+     * Gère l'envoi du formulaire de réservation par email.
+     */
+    public function sendReservation(Request $request)
+    {
+        $data = $request->validate([
+            'full_name'     => 'required|string',
+            'phone'         => 'required|string',
+            'date'          => 'required|date',
+            'time'          => 'required|string',
+            'guests'        => 'required|integer|min:1',
+            'allergies'     => 'nullable|string',
+            'notifications' => 'nullable|string',
+        ]);
+
+        // Envoi de l'email à votre adresse cafecreme69008@gmail.com
+        Mail::to('cafecreme69008@gmail.com')->send(new ReservationMessage($data));
+
+        // Retour sur la page avec un message de succès
+        return back()->with('success', 'Votre demande de réservation a bien été envoyée !');
     }
 }

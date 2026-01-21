@@ -4,26 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Réservation - Café Crème</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <style>
-        /* Ajustement spécifique pour que le module de réservation prenne bien toute la place */
-        .booking-card {
-            padding: 20px !important; /* Réduit le padding pour laisser plus de place au module */
-            display: block !important; /* Désactive le flex centering pour l'iframe */
-            overflow: hidden;
-            min-height: 650px; /* Taille optimale pour le calendrier ViteUneTable */
-        }
-        iframe {
-            border: none;
-            width: 100%;
-            height: 600px;
-            border-radius: 8px;
-        }
-    </style>
 </head>
-<body style="background-color: #f1ece1;">
+<body>
 
 <nav>
     <a href="{{ route('home') }}" class="brand-container">
@@ -75,23 +60,81 @@
     </div>
 </nav>
 
-<main class="reserva-page">
-    <header class="reserva-hero">
-        <div class="container">
-            <h1 data-en="BOOKING">RÉSERVATION</h1>
-            <p data-en="BOOK YOUR TABLE IN A FEW CLICKS">RÉSERVEZ VOTRE TABLE EN QUELQUES CLICS</p>
-        </div>
-    </header>
+<main class="lobut-style-contact">
+    <section class="contact-header">
+        <h1 data-en="Reservation">Réservation</h1>
+        <p data-en="Book your table to ensure a seat for your next visit!">Réservez votre table pour garantir votre place lors de votre prochaine visite !</p>
+    </section>
 
-    <section class="booking-section">
-        <div class="container">
-            <div class="booking-card">
-                <iframe
-                    src="https://app.viteunetable.com/fr/reservation/cafecreme/"
-                    title="Réservation ViteUneTable Café Crème">
-                </iframe>
-            </div>
+    <section class="contact-quick-info">
+        <div class="info-item">
+            <div class="icon">📅</div>
+            <h3 data-en="Date">Date & Jour</h3>
+            <p data-en="Select your preferred day">Choisissez votre jour de visite</p>
         </div>
+        <div class="info-item">
+            <div class="icon">📞</div>
+            <h3 data-en="Phone">Téléphone</h3>
+            <p>09 86 15 66 57</p>
+        </div>
+        <div class="info-item">
+            <div class="icon">⏰</div>
+            <h3 data-en="Opening Hours">Horaires</h3>
+            <p data-en="Mon - Fri : 08:00 - 19:00 / Sat - Sun : 09:30 - 17:00">
+                Lun - Ven : 08h - 19h<br>
+                Sam - Dim : 09h30 - 17h
+            </p>
+        </div>
+    </section>
+
+    <section class="contact-form-section">
+        @if(session('success'))
+            <div style="background: #d4edda; color: #155724; padding: 15px; margin-bottom: 20px; border-radius: 5px; text-align: center; font-weight: bold; border: 1px solid #c3e6cb;">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        <form action="{{ route('reservation.send') }}" method="POST" class="lobut-form">
+            @csrf
+            <div class="form-row">
+                <div class="form-group">
+                    <label data-en="Last Name & First Name *">Nom et Prénom *</label>
+                    <input type="text" name="full_name" required>
+                </div>
+                <div class="form-group">
+                    <label data-en="Phone Number *">Numéro de téléphone *</label>
+                    <input type="tel" name="phone" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label data-en="Date *">Date *</label>
+                    <input type="date" name="date" id="res-date" required>
+                </div>
+                <div class="form-group">
+                    <label data-en="Time *">Heure *</label>
+                    <input type="time" name="time" id="res-time" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label data-en="Number of people *">Nombre de personnes *</label>
+                <input type="number" name="guests" min="1" required>
+            </div>
+
+            <div class="form-group">
+                <label data-en="Allergies (if any)">Avez-vous des allergies ?</label>
+                <textarea name="allergies" rows="2" placeholder="Ex: Gluten, Arachides..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label data-en="Special Requests (Stroller, etc.)">Précisions (ex: poussette, chaise haute...)</label>
+                <textarea name="notifications" rows="3"></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit" data-en="Send Reservation">Envoyer ma réservation</button>
+        </form>
     </section>
 </main>
 
@@ -117,10 +160,11 @@
         </div>
     </div>
     <div class="footer-bottom">
-        <p>© 2026 CAFÉ CRÈME | <a href="{{ route('terms') }}" class="small-terms" data-en="Our Terms">Nos Conditions</a></p>
+        <p>© 2026 Café Crème - Lyon 8e | <a href="{{ route('terms') }}" class="small-terms" data-en="Our Terms">Nos Conditions</a></p>
     </div>
 </footer>
 
 <script src="{{ asset('js/main.js') }}"></script>
+<script src="{{ asset('js/reservation.js') }}"></script>
 </body>
 </html>

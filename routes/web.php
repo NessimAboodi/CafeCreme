@@ -58,3 +58,4 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 });
 
 Route::post('/contact', [AdminController::class, 'sendContact'])->name('contact.send');
+Route::post('/reservation', [AdminController::class, 'sendReservation'])->name('reservation.send');
