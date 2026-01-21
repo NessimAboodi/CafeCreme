@@ -91,6 +91,33 @@
     </section>
 </main>
 
+<footer>
+    <div class="container footer-grid">
+        <div class="footer-col">
+            <h3 data-en="FIND US">NOUS TROUVER</h3>
+            <p><i class="fas fa-map-marker-alt"></i> 12 Rue Professeur Rollet<br>69008 Lyon</p>
+            <p><i class="fas fa-phone"></i> +33 09 86 15 66 57</p>
+        </div>
+        <div class="footer-col">
+            <h3 data-en="EXPLORE">EXPLORER</h3>
+            <ul>
+                <li><a href="{{ route('home') }}" data-en="HOME">ACCUEIL</a></li>
+                <li><a href="{{ route('menu') }}" data-en="MENU">LA CARTE</a></li>
+                <li><a href="{{ route('reservation') }}" data-en="BOOKING">RÉSERVATION</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3 data-en="FOLLOW US">SUIVEZ-NOUS</h3>
+            <div class="footer-socials">
+                <a href="https://www.instagram.com/cafecreme_lyon/" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 Café Crème - Lyon 8e | <a href="{{ route('terms') }}" class="small-terms" data-en="Our Terms">Nos Conditions</a></p>
+    </div>
+</footer>
+
 <script src="{{ asset('js/main.js') }}"></script>
 <script src="{{ asset('js/reservation.js') }}"></script>
 </body>
