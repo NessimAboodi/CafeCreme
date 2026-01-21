@@ -14,18 +14,56 @@
     <a href="{{ route('home') }}" class="brand-container">
         <img src="{{ asset('images/logo1.png') }}" alt="Logo Café Crème">
     </a>
+
+    <button class="explorer-btn" id="menu-trigger">
+        <span class="btn-label" data-en="EXPLORE">EXPLORER</span>
+        <div class="icon-burger">
+            <span></span>
+            <span></span>
+        </div>
+    </button>
+
+    <div class="nav-overlay" id="nav-overlay">
+        <div class="menu-items">
+            <a href="{{ route('home') }}" data-en="HOME">ACCUEIL</a>
+            <a href="{{ route('menu') }}" data-en="MENU">CARTE</a>
+            <a href="{{ route('reservation') }}" data-en="BOOKING">RÉSERVATION</a>
+            <a href="{{ route('contact') }}" data-en="CONTACT">CONTACT</a>
+
+            <div class="lang-dropdown">
+                <button class="lang-dropbtn" onclick="toggleLangMenu('lang-menu-mobile')">
+                    <span class="current-lang-text">FR</span> <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="lang-options" id="lang-menu-mobile">
+                    <a href="#" onclick="selectLanguage('fr')">Français</a>
+                    <a href="#" onclick="selectLanguage('en')">English</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="nav-links desktop-only">
-        <a href="{{ route('home') }}">ACCUEIL</a>
-        <a href="{{ route('menu') }}">CARTE</a>
-        <a href="{{ route('reservation') }}">RÉSERVATION</a>
-        <a href="{{ route('contact') }}">CONTACT</a>
+        <a href="{{ route('home') }}" data-en="HOME">ACCUEIL</a>
+        <a href="{{ route('menu') }}" data-en="MENU">CARTE</a>
+        <a href="{{ route('reservation') }}" data-en="BOOKING">RÉSERVATION</a>
+        <a href="{{ route('contact') }}" data-en="CONTACT">CONTACT</a>
+
+        <div class="lang-dropdown">
+            <button class="lang-dropbtn" onclick="toggleLangMenu('lang-menu-desktop')">
+                <span class="current-lang-text">FR</span> <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="lang-options" id="lang-menu-desktop">
+                <a href="#" onclick="selectLanguage('fr')">Français</a>
+                <a href="#" onclick="selectLanguage('en')">English</a>
+            </div>
+        </div>
     </div>
 </nav>
 
 <main class="lobut-style-contact">
     <section class="contact-header">
         <h1 data-en="Reservation">Réservation</h1>
-        <p>Réservez votre table pour garantir votre place !</p>
+        <p data-en="Book your table to ensure a seat for your next visit!">Réservez votre table pour garantir votre place !</p>
     </section>
 
     <section class="contact-form-section">
@@ -39,14 +77,14 @@
             @csrf
             <div class="form-row">
                 <div class="form-group">
-                    <label>Nom et Prénom *</label>
+                    <label data-en="Last Name & First Name *">Nom et Prénom *</label>
                     <div class="input-icon-wrapper">
                         <input type="text" name="full_name" required>
                         <i class="fas fa-user"></i>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Numéro de téléphone *</label>
+                    <label data-en="Phone Number *">Numéro de téléphone *</label>
                     <div class="input-icon-wrapper">
                         <input type="tel" name="phone" required>
                         <i class="fas fa-phone"></i>
@@ -56,14 +94,14 @@
 
             <div class="form-row">
                 <div class="form-group">
-                    <label>Date *</label>
+                    <label data-en="Date *">Date *</label>
                     <div class="input-icon-wrapper">
                         <input type="date" name="date" id="res-date" min="{{ date('Y-m-d') }}" required>
                         <i class="fas fa-calendar-alt"></i>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Heure *</label>
+                    <label data-en="Time *">Heure *</label>
                     <div class="input-icon-wrapper">
                         <select name="time" id="res-time" required>
                             <option value="" disabled selected>Choisissez d'abord une date</option>
@@ -74,7 +112,7 @@
             </div>
 
             <div class="form-group">
-                <label>Nombre de personnes *</label>
+                <label data-en="Number of people *">Nombre de personnes *</label>
                 <div class="input-icon-wrapper">
                     <input type="number" name="guests" min="1" required>
                     <i class="fas fa-users"></i>
@@ -82,11 +120,11 @@
             </div>
 
             <div class="form-group">
-                <label>Allergies ou précisions</label>
-                <textarea name="notifications" rows="3" placeholder="Poussette, chaise haute, allergies..."></textarea>
+                <label data-en="Special Requests">Précisions ou allergies</label>
+                <textarea name="notifications" rows="3" placeholder="Poussette, allergies..."></textarea>
             </div>
 
-            <button type="submit" class="btn-submit">Confirmer la réservation</button>
+            <button type="submit" class="btn-submit" data-en="Send Reservation">Confirmer la réservation</button>
         </form>
     </section>
 </main>
@@ -96,14 +134,13 @@
         <div class="footer-col">
             <h3 data-en="FIND US">NOUS TROUVER</h3>
             <p><i class="fas fa-map-marker-alt"></i> 12 Rue Professeur Rollet<br>69008 Lyon</p>
-            <p><i class="fas fa-phone"></i> +33 09 86 15 66 57</p>
         </div>
         <div class="footer-col">
             <h3 data-en="EXPLORE">EXPLORER</h3>
             <ul>
-                <li><a href="{{ route('home') }}" data-en="HOME">ACCUEIL</a></li>
-                <li><a href="{{ route('menu') }}" data-en="MENU">LA CARTE</a></li>
-                <li><a href="{{ route('reservation') }}" data-en="BOOKING">RÉSERVATION</a></li>
+                <li><a href="{{ route('home') }}">ACCUEIL</a></li>
+                <li><a href="{{ route('menu') }}">LA CARTE</a></li>
+                <li><a href="{{ route('reservation') }}">RÉSERVATION</a></li>
             </ul>
         </div>
         <div class="footer-col">
