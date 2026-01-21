@@ -89,7 +89,7 @@
 
     <section class="contact-form-section">
         @if(session('success'))
-            <div style="background: #d4edda; color: #155724; padding: 15px; margin-bottom: 20px; border-radius: 5px; text-align: center; font-weight: bold; border: 1px solid #c3e6cb;">
+            <div style="background: #d4edda; color: #155724; padding: 15px; margin-bottom: 20px; border-radius: 12px; text-align: center; font-weight: bold; border: 1px solid #c3e6cb; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
                 {{ session('success') }}
             </div>
         @endif
@@ -99,28 +99,45 @@
             <div class="form-row">
                 <div class="form-group">
                     <label data-en="Last Name & First Name *">Nom et Prénom *</label>
-                    <input type="text" name="full_name" required>
+                    <div class="input-icon-wrapper">
+                        <input type="text" name="full_name" required>
+                        <i class="fas fa-user"></i>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label data-en="Phone Number *">Numéro de téléphone *</label>
-                    <input type="tel" name="phone" required>
+                    <div class="input-icon-wrapper">
+                        <input type="tel" name="phone" required>
+                        <i class="fas fa-phone"></i>
+                    </div>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group">
                     <label data-en="Date *">Date *</label>
-                    <input type="date" name="date" id="res-date" required>
+                    <div class="input-icon-wrapper">
+                        <input type="date" name="date" id="res-date" min="{{ date('Y-m-d') }}" required>
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label data-en="Time *">Heure *</label>
-                    <input type="time" name="time" id="res-time" required>
+                    <div class="input-icon-wrapper">
+                        <select name="time" id="res-time" required>
+                            <option value="" disabled selected>Choisissez d'abord une date</option>
+                        </select>
+                        <i class="fas fa-clock"></i>
+                    </div>
                 </div>
             </div>
 
             <div class="form-group">
                 <label data-en="Number of people *">Nombre de personnes *</label>
-                <input type="number" name="guests" min="1" required>
+                <div class="input-icon-wrapper">
+                    <input type="number" name="guests" min="1" required>
+                    <i class="fas fa-users"></i>
+                </div>
             </div>
 
             <div class="form-group">
@@ -133,7 +150,7 @@
                 <textarea name="notifications" rows="3"></textarea>
             </div>
 
-            <button type="submit" class="btn-submit" data-en="Send Reservation">Envoyer ma réservation</button>
+            <button type="submit" class="btn-submit" data-en="Send Reservation">Réserver ma table</button>
         </form>
     </section>
 </main>
