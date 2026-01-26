@@ -7,19 +7,6 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-    <style>
-        .item-name, .price, h3, .menu-item span {
-            font-weight: 400 !important;
-        }
-        .item-desc {
-            font-weight: 400;
-        }
-        /* Style pour s'assurer que les sections s'espacent bien */
-        .menu-section {
-            margin-bottom: 50px;
-        }
-    </style>
 </head>
 <body>
 
@@ -80,17 +67,14 @@
     </header>
 
     <div class="container">
-        {{-- Boucle dynamique sur les catégories --}}
         @foreach($items as $category => $categoryItems)
             <section class="menu-section">
                 <h2 class="category-title" data-en="{{ $category }}">{{ $category }}</h2>
 
-                {{-- On utilise la classe formula-grid si c'est la catégorie des formules, sinon menu-grid --}}
                 <div class="{{ $category == 'Nos Formules' ? 'formula-grid' : 'menu-grid' }}">
 
                     @foreach($categoryItems as $item)
                         @if($category == 'Nos Formules')
-                            {{-- Affichage spécifique pour les Formules --}}
                             <div class="formula-box">
                                 <h3 data-en="{{ $item->name_en ?? $item->name }} — {{ $item->price }}">
                                     {{ $item->name }} — {{ $item->price }}
@@ -100,8 +84,14 @@
                                 </p>
                             </div>
                         @else
-                            {{-- Affichage standard pour les autres plats --}}
-                            <div class="menu-item full">
+                            <div class="menu-item full {{ $item->image ? 'with-image' : '' }}">
+
+                                @if($item->image)
+                                    <div class="item-photo">
+                                        <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}">
+                                    </div>
+                                @endif
+
                                 <div class="item-info">
                                     <span class="item-name" data-en="{{ $item->name_en ?? $item->name }}">
                                         {{ $item->name }}

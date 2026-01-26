@@ -9,6 +9,7 @@ use App\Models\Reservation; // Importation du modèle Reservation pour la base d
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMessage;
 use App\Mail\ReservationMessage;
+use Illuminate\Support\Facades\Storage; // Nécessaire pour la gestion des fichiers
 
 class AdminController extends Controller
 {
@@ -76,10 +77,11 @@ class AdminController extends Controller
     }
 
     /**
-     * Enregistre un nouveau plat dans la base de données.
+     * Enregistre un nouveau plat dans la base de données avec sa photo.
      */
     public function storeMenu(Request $request)
     {
+        // 1. Validation des données, y compris l'image
         $data = $request->validate([
             'category'       => 'required|string',
             'name'           => 'required|string',
@@ -87,10 +89,21 @@ class AdminController extends Controller
             'description'    => 'nullable|string',
             'description_en' => 'nullable|string',
             'price'          => 'required|string',
+            'image'          => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validation de la photo
         ]);
 
+        // 2. Gestion du téléchargement de la photo
+        if ($request->hasFile('image')) {
+            // On sauvegarde l'image dans storage/app/public/menu_images
+            $path = $request->file('image')->store('menu_images', 'public');
+            // On enregistre le chemin dans le tableau $data pour la base de données
+            $data['image'] = $path;
+        }
+
+        // 3. Création du plat dans la base
         MenuItem::create($data);
-        return back()->with('success', 'Le plat a bien été ajouté à la carte !');
+
+        return back()->with('success', 'Le plat et sa photo ont bien été ajoutés à la carte !');
     }
 
     /**
@@ -111,7 +124,14 @@ class AdminController extends Controller
      */
     public function destroyMenu($id)
     {
-        MenuItem::findOrFail($id)->delete();
+        $item = MenuItem::findOrFail($id);
+
+        // Optionnel : Supprimer le fichier image du serveur pour ne pas encombrer le stockage
+        if ($item->image) {
+            Storage::disk('public')->delete($item->image);
+        }
+
+        $item->delete();
         return back()->with('success', 'Le plat a été retiré de la carte.');
     }
 
