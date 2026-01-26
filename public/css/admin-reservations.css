@@ -1,0 +1,59 @@
+/* public/css/admin-reservations.css */
+.admin-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+h1 {
+    color: #967969;
+    text-align: center;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+.table-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
+.res-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.res-table th {
+    background: #f8f5f0; /* Crème très clair */
+    padding: 18px 15px;
+    text-align: left;
+    color: #5d4a41;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    border-bottom: 2px solid #eee;
+}
+
+.res-table td {
+    padding: 18px 15px;
+    border-bottom: 1px solid #f1ece1;
+}
+
+.res-table tr:hover {
+    background-color: #fffaf4;
+}
+
+.time-badge {
+    background: #967969;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.notes-cell {
+    font-size: 0.85rem;
+    color: #666;
+    max-width: 250px;
+}

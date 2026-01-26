@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\MenuItem;
+use App\Models\Reservation; // Importation du modèle Reservation pour la base de données
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMessage;
 use App\Mail\ReservationMessage;
@@ -45,7 +46,7 @@ class AdminController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            // Redirection directe vers l'interface de gestion du menu
+            // Redirection vers l'interface de gestion du menu
             return redirect()->route('admin.menu.edit');
         }
 
@@ -89,7 +90,6 @@ class AdminController extends Controller
         ]);
 
         MenuItem::create($data);
-
         return back()->with('success', 'Le plat a bien été ajouté à la carte !');
     }
 
@@ -100,11 +100,9 @@ class AdminController extends Controller
     {
         if ($request->has('items')) {
             foreach ($request->items as $id => $data) {
-                // Met à jour chaque plat individuellement via son ID
                 MenuItem::findOrFail($id)->update($data);
             }
         }
-
         return back()->with('success', 'La carte a été mise à jour avec succès !');
     }
 
@@ -114,7 +112,6 @@ class AdminController extends Controller
     public function destroyMenu($id)
     {
         MenuItem::findOrFail($id)->delete();
-
         return back()->with('success', 'Le plat a été retiré de la carte.');
     }
 
@@ -125,7 +122,6 @@ class AdminController extends Controller
      */
     public function sendContact(Request $request)
     {
-        // Validation des champs présents dans votre formulaire HTML
         $data = $request->validate([
             'lastname'  => 'required|string',
             'firstname' => 'required|string',
@@ -133,17 +129,14 @@ class AdminController extends Controller
             'message'   => 'required|string',
         ]);
 
-        // Envoi de l'email à votre adresse cafecreme69008@gmail.com
         Mail::to('cafecreme69008@gmail.com')->send(new ContactMessage($data));
-
-        // Retour sur la page avec un message de succès
         return back()->with('success', 'Merci ! Votre message a bien été envoyé.');
     }
 
     // --- PARTIE RÉSERVATION ---
 
     /**
-     * Gère l'envoi du formulaire de réservation par email.
+     * Gère l'envoi et l'enregistrement de la réservation.
      */
     public function sendReservation(Request $request)
     {
@@ -153,14 +146,37 @@ class AdminController extends Controller
             'date'          => 'required|date',
             'time'          => 'required|string',
             'guests'        => 'required|integer|min:1',
-            'allergies'     => 'nullable|string',
             'notifications' => 'nullable|string',
         ]);
 
-        // Envoi de l'email à votre adresse cafecreme69008@gmail.com
+        // 1. Enregistrement en base de données pour l'administration
+        Reservation::create($data);
+
+        // 2. Envoi de l'email de notification
         Mail::to('cafecreme69008@gmail.com')->send(new ReservationMessage($data));
 
-        // Retour sur la page avec un message de succès
-        return back()->with('success', 'Votre demande de réservation a bien été envoyée !');
+        return back()->with('success', 'Votre demande de réservation a bien été envoyée et enregistrée !');
+    }
+
+    /**
+     * Affiche la liste des réservations pour l'administrateur.
+     */
+    public function listReservations()
+    {
+        // On récupère les réservations triées par date décroissante (plus récentes d'abord)
+        $reservations = Reservation::orderBy('date', 'desc')->orderBy('time', 'asc')->get();
+        return view('admin.reservations', compact('reservations'));
+    }
+
+    /**
+     * API : Retourne les créneaux déjà réservés pour une date donnée.
+     * Utilisé pour désactiver/griser les options dans le formulaire client.
+     */
+    public function getBookedSlots(Request $request)
+    {
+        $date = $request->query('date');
+        $bookedSlots = Reservation::where('date', $date)->pluck('time');
+
+        return response()->json($bookedSlots);
     }
 }

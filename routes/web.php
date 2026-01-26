@@ -10,12 +10,10 @@ use App\Http\Controllers\AdminController;
 */
 
 // --- ROUTES PUBLIQUES ---
-// Ces routes sont accessibles par tous les visiteurs du site.
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-// La route menu passe par le contrôleur pour charger les données de la base de données
 Route::get('/menu', [AdminController::class, 'publicMenu'])->name('menu');
 
 Route::get('/reservation', function () {
@@ -30,32 +28,31 @@ Route::get('/conditions', function () {
     return view('terms');
 })->name('terms');
 
+// Envoi des formulaires
+Route::post('/contact', [AdminController::class, 'sendContact'])->name('contact.send');
+Route::post('/reservation', [AdminController::class, 'sendReservation'])->name('reservation.send');
 
-// --- ACCÈS ADMIN CACHÉ (Porte dérobée) ---
-// C'est ici que vous vous connectez pour accéder à la gestion.
+// API pour le JavaScript (Vérification des créneaux en temps réel)
+Route::get('/api/booked-slots', [AdminController::class, 'getBookedSlots']);
+
+
+// --- ACCÈS ADMIN (Connexion) ---
 Route::get('/access-portal', [AdminController::class, 'showLogin'])->name('login');
 Route::post('/access-portal', [AdminController::class, 'login']);
 
 
-// --- ESPACE DE GESTION DU MENU (Protégé par Auth) ---
-// Seul l'administrateur connecté peut accéder à ces routes.
+// --- ESPACE PRIVÉ ADMIN (Protégé par Auth) ---
 Route::middleware(['auth'])->prefix('admin')->group(function () {
 
-    // 1. Afficher la page de gestion (Modifier / Liste)
+    // 1. Gestion du Menu
     Route::get('/modifier-menu', [AdminController::class, 'editMenu'])->name('admin.menu.edit');
-
-    // 2. Action pour mettre à jour les éléments existants (Prix, Noms, etc.)
     Route::post('/modifier-menu', [AdminController::class, 'updateMenu'])->name('admin.menu.update');
-
-    // 3. Action pour AJOUTER un nouvel article à la carte
     Route::post('/ajouter-item', [AdminController::class, 'storeMenu'])->name('admin.menu.store');
-
-    // 4. Action pour SUPPRIMER un article de la carte
     Route::delete('/supprimer-item/{id}', [AdminController::class, 'destroyMenu'])->name('admin.menu.destroy');
 
-    // 5. Déconnexion
+    // 2. Gestion des Réservations
+    Route::get('/reservations', [AdminController::class, 'listReservations'])->name('admin.reservations');
+
+    // 3. Déconnexion
     Route::post('/logout', [AdminController::class, 'logout'])->name('admin.logout');
 });
-
-Route::post('/contact', [AdminController::class, 'sendContact'])->name('contact.send');
-Route::post('/reservation', [AdminController::class, 'sendReservation'])->name('reservation.send');
