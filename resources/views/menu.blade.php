@@ -76,16 +76,15 @@
                     @foreach($categoryItems as $item)
                         @if($category == 'Nos Formules')
                             <div class="formula-box">
-                                <h3 data-en="{{ $item->name_en ?? $item->name }} — {{ $item->price }}">
-                                    {{ $item->name }} — {{ $item->price }}
+                                <h3 data-en="{{ $item->name_en ?? $item->name }} — {{ $item->price }}€">
+                                    {{ $item->name }} — {{ $item->price }}€
                                 </h3>
                                 <p data-en="{{ $item->description_en ?? $item->description }}">
                                     {{ $item->description }}
                                 </p>
                             </div>
                         @else
-                            <div class="menu-item full {{ $item->image ? 'with-image' : '' }}">
-
+                            <div class="menu-item full">
                                 @if($item->image)
                                     <div class="item-photo">
                                         <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}">
@@ -102,7 +101,7 @@
                                         </p>
                                     @endif
                                 </div>
-                                <span class="price">{{ $item->price }}</span>
+                                <span class="price">{{ $item->price }}€</span>
                             </div>
                         @endif
                     @endforeach

@@ -1606,3 +1606,108 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         height: 70px;
     }
 }
+/* --- Design Premium de la Carte (Modernisation) --- */
+
+/* La grille s'adapte toute seule à la taille de l'écran */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+    gap: 30px !important;
+}
+
+/* Transformation de chaque plat en "Carte Premium" */
+.menu-item.full {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex !important; /* Force l'alignement photo/texte */
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 10px 30px rgba(150, 121, 105, 0.08); /* Ombre douce couleur café */
+    transition: all 0.3s ease;
+    border: 1px solid rgba(150, 121, 105, 0.05);
+    height: 100%; /* Cartes de même hauteur */
+}
+
+/* Effet au survol : la carte se soulève */
+.menu-item.full:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(150, 121, 105, 0.15);
+}
+
+/* Style de la photo */
+.item-photo {
+    width: 150px;
+    height: 150px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.item-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.menu-item.full:hover .item-photo img {
+    transform: scale(1.1); /* Zoom de la photo au survol */
+}
+
+/* Textes à l'intérieur */
+.item-name {
+    font-weight: 700 !important;
+    color: #4a3f35 !important;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.item-desc {
+    color: #8c7e74 !important;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Style du prix "Badge" */
+.price {
+    color: #967969 !important;
+    font-weight: 700 !important;
+    background: #fdfbf9;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 1rem;
+    border: 1px solid rgba(150, 121, 105, 0.1);
+}
+
+/* Style Formules (Marron Café) */
+.formula-box {
+    background: #967969 !important;
+    border-radius: 25px !important;
+    padding: 35px !important;
+    transition: 0.3s;
+}
+
+.formula-box:hover {
+    background: #4a3f35 !important;
+}
+
+.formula-box h3 {
+    color: #f4d06f !important; /* Titre en doré */
+    font-weight: 700 !important;
+}
+
+/* Responsive : Mobile */
+@media (max-width: 480px) {
+    .menu-item.full {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px;
+    }
+    .item-photo {
+        width: 120px;
+        height: 120px;
+    }
+}

@@ -107,13 +107,28 @@ class AdminController extends Controller
     }
 
     /**
-     * Met à jour tous les plats modifiés dans la liste.
+     * Met à jour tous les plats modifiés dans la liste (y compris les photos).
      */
     public function updateMenu(Request $request)
     {
         if ($request->has('items')) {
             foreach ($request->items as $id => $data) {
-                MenuItem::findOrFail($id)->update($data);
+                $item = MenuItem::findOrFail($id);
+
+                // Vérifier si un nouveau fichier image a été téléchargé pour ce plat
+                if ($request->hasFile("items.$id.image")) {
+                    // 1. Supprimer l'ancienne image du serveur si elle existe
+                    if ($item->image) {
+                        Storage::disk('public')->delete($item->image);
+                    }
+                    // 2. Sauvegarder la nouvelle image
+                    $path = $request->file("items.$id.image")->store('menu_images', 'public');
+                    // 3. Ajouter le chemin à la liste des données à mettre à jour
+                    $data['image'] = $path;
+                }
+
+                // Mise à jour finale de l'item en base de données
+                $item->update($data);
             }
         }
         return back()->with('success', 'La carte a été mise à jour avec succès !');
@@ -126,7 +141,7 @@ class AdminController extends Controller
     {
         $item = MenuItem::findOrFail($id);
 
-        // Optionnel : Supprimer le fichier image du serveur pour ne pas encombrer le stockage
+        // Supprimer le fichier image du serveur pour ne pas encombrer le stockage
         if ($item->image) {
             Storage::disk('public')->delete($item->image);
         }

@@ -4,14 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administration - Café Crème</title>
-    {{-- Utilisation de votre fichier CSS principal --}}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-{{-- Barre de navigation intégrée --}}
 <nav>
     <a href="{{ route('home') }}" class="brand-container">
         <img src="{{ asset('images/logo1.png') }}" alt="Logo Café Crème">
@@ -40,10 +38,9 @@
             </div>
         @endif
 
-        {{-- Formulaire d'Ajout - Style Formulaire Contact --}}
+        {{-- Formulaire d'Ajout --}}
         <section class="contact-form-section" style="margin-bottom: 60px;">
             <h2 class="category-title" style="margin-bottom: 25px;">Nouveau produit</h2>
-            {{-- AJOUT : enctype="multipart/form-data" pour autoriser l'envoi de fichiers --}}
             <form action="{{ route('admin.menu.store') }}" method="POST" enctype="multipart/form-data" class="lobut-form">
                 @csrf
                 <div class="form-row">
@@ -87,12 +84,10 @@
                     </div>
                 </div>
 
-                {{-- NOUVEAU : Champ pour télécharger la photo --}}
                 <div class="form-row">
                     <div class="form-group">
                         <label>Photo du plat</label>
-                        <input type="file" name="image" accept="image/*" style="padding: 10px 0;">
-                        <small style="color: #967969; font-size: 0.7rem;">Format recommandé : JPG ou PNG (max 2Mo)</small>
+                        <input type="file" name="image" accept="image/*">
                     </div>
                 </div>
 
@@ -100,15 +95,15 @@
             </form>
         </section>
 
-        {{-- Liste pour Modification - Style Section Menu --}}
-        <form action="{{ route('admin.menu.update') }}" method="POST">
+        {{-- Liste pour Modification --}}
+        {{-- AJOUT : enctype="multipart/form-data" est maintenant obligatoire ici aussi --}}
+        <form action="{{ route('admin.menu.update') }}" method="POST" enctype="multipart/form-data">
             @csrf
             @foreach($items as $category => $categoryItems)
                 <div class="menu-section" style="margin-bottom: 40px; background: white; padding: 30px; border-radius: 15px;">
                     <h2 class="category-title">{{ $category }}</h2>
                     @foreach($categoryItems as $item)
-                        {{-- Ajustement du grid pour inclure la prévisualisation de l'image --}}
-                        <div style="display: grid; grid-template-columns: 2fr 2fr 1fr 80px 50px; gap: 20px; padding: 20px 0; border-bottom: 1px solid #f1ece1; align-items: end;">
+                        <div style="display: grid; grid-template-columns: 2fr 2fr 1fr 120px 50px; gap: 20px; padding: 20px 0; border-bottom: 1px solid #f1ece1; align-items: end;">
                             <div class="form-group" style="margin: 0;">
                                 <label style="font-size: 0.7rem;">Noms (FR / EN)</label>
                                 <input type="text" name="items[{{$item->id}}][name]" value="{{$item->name}}" style="margin-bottom: 5px;">
@@ -124,14 +119,13 @@
                                 <input type="text" name="items[{{$item->id}}][price]" value="{{$item->price}}">
                             </div>
 
-                            {{-- Prévisualisation de l'image existante --}}
+                            {{-- MODIFIÉ : Ajout de l'input FILE pour changer la photo --}}
                             <div class="form-group" style="margin: 0; text-align: center;">
-                                <label style="font-size: 0.7rem;">Image</label>
+                                <label style="font-size: 0.7rem;">Photo</label>
                                 @if($item->image)
-                                    <img src="{{ asset('storage/' . $item->image) }}" alt="Photo" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px; display: block; margin: 5px auto 0;">
-                                @else
-                                    <span style="font-size: 0.6rem; color: #967969; display: block; margin-top: 15px;">Aucune</span>
+                                    <img src="{{ asset('storage/' . $item->image) }}" alt="Photo" style="width: 40px; height: 40px; object-fit: cover; border-radius: 5px; margin: 0 auto 5px;">
                                 @endif
+                                <input type="file" name="items[{{$item->id}}][image]" accept="image/*" style="font-size: 0.6rem; padding: 0;">
                             </div>
 
                             <button type="button" onclick="deleteItem({{$item->id}})" style="background: none; border: none; color: #967969; cursor: pointer; font-size: 1.2rem; padding-bottom: 10px;">
