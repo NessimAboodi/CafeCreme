@@ -5,24 +5,43 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\MenuItem;
-use App\Models\Reservation; // Importation du modèle Reservation pour la base de données
+use App\Models\Reservation;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMessage;
 use App\Mail\ReservationMessage;
-use Illuminate\Support\Facades\Storage; // Nécessaire pour la gestion des fichiers
+use Illuminate\Support\Facades\Storage;
+use Firebase\JWT\JWT; // Importation pour Chatbase Identity Verification
 
 class AdminController extends Controller
 {
     // --- PARTIE PUBLIQUE ---
 
     /**
-     * Affiche la carte aux clients en récupérant les données de la base.
+     * Affiche la carte aux clients avec le token Chatbase si connecté.
      */
     public function publicMenu()
     {
-        // On récupère tous les plats et on les groupe par catégorie pour l'affichage
+        // Récupération des plats
         $items = MenuItem::all()->groupBy('category');
-        return view('menu', compact('items'));
+
+        // Initialisation du token Chatbase
+        $chatbaseToken = null;
+
+        // Si l'utilisateur est authentifié (Admin ou Client), on génère le token de vérification
+        if (auth()->check()) {
+            $user = auth()->user();
+            $payload = [
+                'user_id' => (string) $user->id,
+                'email'   => $user->email,
+                'name'    => $user->name,
+                'exp'     => time() + 3600 // Expire dans 1 heure
+            ];
+
+            // Signature du token avec la clé secrète définie dans le .env
+            $chatbaseToken = JWT::encode($payload, env('CHATBASE_SECRET'), 'HS256');
+        }
+
+        return view('menu', compact('items', 'chatbaseToken'));
     }
 
     // --- PARTIE AUTHENTIFICATION ---
@@ -47,7 +66,6 @@ class AdminController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            // Redirection vers l'interface de gestion du menu
             return redirect()->route('admin.menu.edit');
         }
 
@@ -81,7 +99,6 @@ class AdminController extends Controller
      */
     public function storeMenu(Request $request)
     {
-        // 1. Validation des données, y compris l'image
         $data = $request->validate([
             'category'       => 'required|string',
             'name'           => 'required|string',
@@ -89,18 +106,14 @@ class AdminController extends Controller
             'description'    => 'nullable|string',
             'description_en' => 'nullable|string',
             'price'          => 'required|string',
-            'image'          => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validation de la photo
+            'image'          => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        // 2. Gestion du téléchargement de la photo
         if ($request->hasFile('image')) {
-            // On sauvegarde l'image dans storage/app/public/menu_images
             $path = $request->file('image')->store('menu_images', 'public');
-            // On enregistre le chemin dans le tableau $data pour la base de données
             $data['image'] = $path;
         }
 
-        // 3. Création du plat dans la base
         MenuItem::create($data);
 
         return back()->with('success', 'Le plat et sa photo ont bien été ajoutés à la carte !');
@@ -115,19 +128,14 @@ class AdminController extends Controller
             foreach ($request->items as $id => $data) {
                 $item = MenuItem::findOrFail($id);
 
-                // Vérifier si un nouveau fichier image a été téléchargé pour ce plat
                 if ($request->hasFile("items.$id.image")) {
-                    // 1. Supprimer l'ancienne image du serveur si elle existe
                     if ($item->image) {
                         Storage::disk('public')->delete($item->image);
                     }
-                    // 2. Sauvegarder la nouvelle image
                     $path = $request->file("items.$id.image")->store('menu_images', 'public');
-                    // 3. Ajouter le chemin à la liste des données à mettre à jour
                     $data['image'] = $path;
                 }
 
-                // Mise à jour finale de l'item en base de données
                 $item->update($data);
             }
         }
@@ -141,7 +149,6 @@ class AdminController extends Controller
     {
         $item = MenuItem::findOrFail($id);
 
-        // Supprimer le fichier image du serveur pour ne pas encombrer le stockage
         if ($item->image) {
             Storage::disk('public')->delete($item->image);
         }
@@ -152,9 +159,6 @@ class AdminController extends Controller
 
     // --- PARTIE CONTACT ---
 
-    /**
-     * Gère l'envoi du formulaire de contact par email.
-     */
     public function sendContact(Request $request)
     {
         $data = $request->validate([
@@ -170,9 +174,6 @@ class AdminController extends Controller
 
     // --- PARTIE RÉSERVATION ---
 
-    /**
-     * Gère l'envoi et l'enregistrement de la réservation.
-     */
     public function sendReservation(Request $request)
     {
         $data = $request->validate([
@@ -184,29 +185,18 @@ class AdminController extends Controller
             'notifications' => 'nullable|string',
         ]);
 
-        // 1. Enregistrement en base de données pour l'administration
         Reservation::create($data);
-
-        // 2. Envoi de l'email de notification
         Mail::to('cafecreme69008@gmail.com')->send(new ReservationMessage($data));
 
         return back()->with('success', 'Votre demande de réservation a bien été envoyée et enregistrée !');
     }
 
-    /**
-     * Affiche la liste des réservations pour l'administrateur.
-     */
     public function listReservations()
     {
-        // On récupère les réservations triées par date décroissante (plus récentes d'abord)
         $reservations = Reservation::orderBy('date', 'desc')->orderBy('time', 'asc')->get();
         return view('admin.reservations', compact('reservations'));
     }
 
-    /**
-     * API : Retourne les créneaux déjà réservés pour une date donnée.
-     * Utilisé pour désactiver/griser les options dans le formulaire client.
-     */
     public function getBookedSlots(Request $request)
     {
         $date = $request->query('date');
