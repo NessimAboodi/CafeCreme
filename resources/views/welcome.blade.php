@@ -173,7 +173,6 @@
 </html>
 
 
-
 {{-- CONFIGURATION DE L'IDENTITÉ AVANT LE CHARGEMENT DU SCRIPT --}}
 <script>
     window.chatbaseUserConfig = {
