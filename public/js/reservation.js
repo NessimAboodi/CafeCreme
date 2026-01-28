@@ -10,8 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
      * @param {number} startMin - Minutes de début
      * @param {number} endHour - Heure de fin
      * @param {Array} bookedSlots - Liste des créneaux déjà réservés (ex: ['09:30', '10:15'])
+     * @param {string|null} minTime - Heure minimum autorisée (format "HH:mm") si c'est aujourd'hui
      */
-    function generateSlots(startHour, startMin, endHour, bookedSlots = []) {
+    function generateSlots(startHour, startMin, endHour, bookedSlots = [], minTime = null) {
         let options = '';
         for (let h = startHour; h <= endHour; h++) {
             let mStart = (h === startHour) ? startMin : 0;
@@ -23,7 +24,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 let val = `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}`;
                 let display = `${h.toString().padStart(2, '0')}h${m.toString().padStart(2, '0')}`;
 
-                // Vérification si le créneau est dans la liste des réservations
+                // --- NOUVEAU : Vérification si l'heure est déjà passée ---
+                if (minTime && val <= minTime) {
+                    continue; // On ignore ce créneau car il est déjà passé
+                }
+
+                // Vérification si le créneau est dans la liste des réservations existantes
                 const isBooked = bookedSlots.includes(val);
 
                 // Préparation des attributs si réservé
@@ -40,6 +46,20 @@ document.addEventListener('DOMContentLoaded', function() {
     dateInput.addEventListener('change', function() {
         const selectedDate = this.value;
         if (!selectedDate) return;
+
+        // --- NOUVEAU : Calcul pour savoir si la date choisie est aujourd'hui ---
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = (now.getMonth() + 1).toString().padStart(2, '0');
+        const dayOfMonth = now.getDate().toString().padStart(2, '0');
+        const todayStr = `${year}-${month}-${dayOfMonth}`;
+
+        let minTime = null;
+        if (selectedDate === todayStr) {
+            // On récupère l'heure et les minutes actuelles
+            // Optionnel : ajouter 30 minutes de battement (now.getTime() + 30 * 60000)
+            minTime = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
+        }
 
         // 1. Déterminer si c'est le week-end
         const dateParts = selectedDate.split('-');
@@ -60,12 +80,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Réinitialiser le menu
                 timeSelect.innerHTML = '<option value="" disabled selected>Choisissez un créneau</option>';
 
+                let slotsHtml = '';
                 if (isWeekend) {
                     // Samedi - Dimanche : 09h30 - 17h
-                    timeSelect.innerHTML += generateSlots(9, 30, 17, bookedSlots);
+                    slotsHtml = generateSlots(9, 30, 17, bookedSlots, minTime);
                 } else {
                     // Lundi - Vendredi : 08h - 19h
-                    timeSelect.innerHTML += generateSlots(8, 0, 19, bookedSlots);
+                    slotsHtml = generateSlots(8, 0, 19, bookedSlots, minTime);
+                }
+
+                if (slotsHtml === '') {
+                    timeSelect.innerHTML = '<option value="" disabled selected>Plus de créneaux disponibles pour aujourd\'hui</option>';
+                } else {
+                    timeSelect.innerHTML += slotsHtml;
                 }
             })
             .catch(error => {
