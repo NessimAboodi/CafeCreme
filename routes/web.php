@@ -56,3 +56,19 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     // 3. Déconnexion
     Route::post('/logout', [AdminController::class, 'logout'])->name('admin.logout');
 });
+// --- ESPACE PRIVÉ ADMIN ---
+Route::middleware(['auth'])->prefix('admin')->group(function () {
+    // ... autres routes ...
+
+    // 4. Statistiques
+    Route::get('/statistiques', [AdminController::class, 'showStats'])->name('admin.stats');
+});
+Route::middleware(['auth'])->prefix('admin')->group(function () {
+    // ... vos autres routes ...
+
+    // Gestion des Réservations
+    Route::get('/reservations', [AdminController::class, 'listReservations'])->name('admin.reservations');
+    Route::get('/reservations/archives', [AdminController::class, 'archiveReservations'])->name('admin.reservations.archive');
+    Route::patch('/reservations/{id}', [AdminController::class, 'updateReservation'])->name('admin.reservations.update');
+    Route::delete('/reservations/{id}', [AdminController::class, 'destroyReservation'])->name('admin.reservations.destroy');
+});

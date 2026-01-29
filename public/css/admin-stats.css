@@ -1,0 +1,64 @@
+/* public/css/admin-stats.css */
+.stats-container {
+    padding-bottom: 100px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.stat-card i {
+    color: #967969;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.stat-card h3 {
+    color: #666;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #967969;
+    margin: 0;
+}
+
+.popular-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.popular-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.chart-section {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.chart-section h3 {
+    margin-top: 0;
+    color: #967969;
+}
