@@ -21,6 +21,9 @@
         <a href="{{ route('admin.reservations') }}" class="{{ request()->routeIs('admin.reservations') ? 'active-link' : '' }}">Réservations</a>
         <a href="{{ route('admin.stats') }}" class="{{ request()->routeIs('admin.stats') ? 'active-link' : '' }}">Statistiques</a>
 
+        <a href="{{ route('admin.planning') }}" class="{{ request()->routeIs('admin.planning') ? 'active-link' : '' }}">Planning</a>
+
+
         <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Déconnexion</a>
     </div>
 </nav>
@@ -44,4 +47,3 @@
 
 </body>
 </html>
-
