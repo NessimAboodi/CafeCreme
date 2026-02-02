@@ -72,3 +72,8 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::patch('/reservations/{id}', [AdminController::class, 'updateReservation'])->name('admin.reservations.update');
     Route::delete('/reservations/{id}', [AdminController::class, 'destroyReservation'])->name('admin.reservations.destroy');
 });
+
+Route::middleware(['auth'])->prefix('admin')->group(function () {
+    // ... vos autres routes
+    Route::get('/planning', [AdminController::class, 'planning'])->name('admin.planning');
+});

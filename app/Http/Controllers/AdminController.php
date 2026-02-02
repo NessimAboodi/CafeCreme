@@ -291,4 +291,28 @@ class AdminController extends Controller
             'selectedYear'
         ));
     }
+    public function planning()
+    {
+        $aujourdhui = date('Y-m-d');
+
+        // Récupération des réservations du jour triées par heure
+        $reservations = Reservation::where('date', $aujourdhui)
+            ->orderBy('time', 'asc')
+            ->get();
+
+        // Calcul des chiffres clés pour la journée
+        $statsJour = [
+            'total_reservations' => $reservations->count(),
+            'total_clients'      => $reservations->sum('guests'),
+            'heures_pointes'     => $reservations->groupBy('time')->map->count(),
+        ];
+
+        return view('admin.planning', compact('reservations', 'statsJour'));
+    }
+
+
+
+
+
+
 }
