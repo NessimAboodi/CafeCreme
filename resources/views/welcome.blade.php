@@ -168,7 +168,7 @@
 </footer>
 
 <script src="{{ asset('js/carousel.js') }}"></script>
-<script src="{{ asset('js/main.js') }}"></script>
+
 </body>
 </html>
 

@@ -1711,3 +1711,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         height: 120px;
     }
 }
+
+.formula-photo img {
+    width: 100%;
+    height: 150px; /* Ou la hauteur de votre choix */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}

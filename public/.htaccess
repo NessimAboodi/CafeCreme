@@ -1,6 +1,7 @@
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
-        Options -MultiViews -Indexes
+        # Modification : Ajout de +FollowSymLinks pour corriger l'erreur 403 sur le dossier storage
+        Options -MultiViews -Indexes +FollowSymLinks
     </IfModule>
 
     RewriteEngine On

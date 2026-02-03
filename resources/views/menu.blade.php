@@ -71,39 +71,30 @@
             <section class="menu-section">
                 <h2 class="category-title" data-en="{{ $category }}">{{ $category }}</h2>
 
-                <div class="{{ $category == 'Nos Formules' ? 'formula-grid' : 'menu-grid' }}">
+                {{-- Utilisation de menu-grid pour TOUTES les catégories pour un design identique --}}
+                <div class="menu-grid">
 
                     @foreach($categoryItems as $item)
-                        @if($category == 'Nos Formules')
-                            <div class="formula-box">
-                                <h3 data-en="{{ $item->name_en ?? $item->name }} — {{ $item->price }}€">
-                                    {{ $item->name }} — {{ $item->price }}€
-                                </h3>
-                                <p data-en="{{ $item->description_en ?? $item->description }}">
-                                    {{ $item->description }}
-                                </p>
-                            </div>
-                        @else
-                            <div class="menu-item full">
-                                @if($item->image)
-                                    <div class="item-photo">
-                                        <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}">
-                                    </div>
-                                @endif
-
-                                <div class="item-info">
-                                    <span class="item-name" data-en="{{ $item->name_en ?? $item->name }}">
-                                        {{ $item->name }}
-                                    </span>
-                                    @if($item->description)
-                                        <p class="item-desc" data-en="{{ $item->description_en ?? $item->description }}">
-                                            {{ $item->description }}
-                                        </p>
-                                    @endif
+                        {{-- Utilisation de menu-item full pour TOUS les produits --}}
+                        <div class="menu-item full">
+                            @if($item->image)
+                                <div class="item-photo">
+                                    <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}">
                                 </div>
-                                <span class="price">{{ $item->price }}€</span>
+                            @endif
+
+                            <div class="item-info">
+                                <span class="item-name" data-en="{{ $item->name_en ?? $item->name }}">
+                                    {{ $item->name }}
+                                </span>
+                                @if($item->description)
+                                    <p class="item-desc" data-en="{{ $item->description_en ?? $item->description }}">
+                                        {{ $item->description }}
+                                    </p>
+                                @endif
                             </div>
-                        @endif
+                            <span class="price">{{ $item->price }}€</span>
+                        </div>
                     @endforeach
 
                 </div>
@@ -142,7 +133,6 @@
     </div>
 </footer>
 
-{{-- CONFIGURATION DE L'IDENTITÉ AVANT LE CHARGEMENT DU SCRIPT --}}
 <script>
     window.chatbaseUserConfig = {
         @if(isset($chatbaseToken))
@@ -152,7 +142,6 @@
     };
 </script>
 
-{{-- SCRIPT CHATBASE FOURNI --}}
 <script>
     (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="0O9vQWt4ybnIuqrA5sW0X";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
 </script>
